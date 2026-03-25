@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPP Abogados — Berríos Palavecino Pinochet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:     #1565C8;
+  --blue-dk:  #0D4FA0;
+  --blue-xdk: #0A3A78;
+  --blue-md:  #378ADD;
+  --blue-lt:  #85B7EB;
+  --white:    #FFFFFF;
+  --gray-bg:  #F5F5F5;
+  --gray-lt:  #E2E2E2;
+  --gray-mid: #999999;
+  --gray-dk:  #2A2A2A;
+  --display:  'Montserrat', sans-serif;
+  --body:     'Montserrat', sans-serif;
+  --serif:    'Crimson Pro', Georgia, serif;
+  --mono:     'IBM Plex Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--body); background:var(--gray-bg); color:var(--gray-dk); overflow-x:hidden; padding-top:36px; }
+
+/* ── TOPBAR ── */
+.topbar {
+  position:fixed; top:0; left:0; right:0; z-index:300;
+  background:var(--blue-xdk); height:36px;
+  display:flex; align-items:center; justify-content:flex-end;
+  padding:0 80px; gap:24px;
+}
+.tb-item {
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--body); font-size:11px; font-weight:400;
+  color:rgba(255,255,255,.5); text-decoration:none;
+  letter-spacing:.03em; transition:color .2s;
+}
+.tb-item:hover { color:#fff; }
+.tb-sep { width:1px; height:12px; background:rgba(255,255,255,.15); }
+.tb-wa {
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--body); font-size:11px; font-weight:600;
+  color:rgba(255,255,255,.85); text-decoration:none;
+  letter-spacing:.06em; text-transform:uppercase;
+  padding-right:18px; border-right:1px solid rgba(255,255,255,.15);
+  transition:color .2s;
+}
+.tb-wa:hover { color:#fff; }
+.tb-icon { width:12px; height:12px; flex-shrink:0; }
+
+/* ── NAV — Tironi style: logo left, links right-aligned ── */
+.nav {
+  position:fixed; top:36px; left:0; right:0; height:72px; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 80px; transition:background .35s, box-shadow .35s;
+}
+.nav.transparent { background:transparent; }
+.nav.solid { background:#fff; box-shadow:0 1px 0 rgba(0,0,0,.08); }
+.nav-logo { display:flex; align-items:center; text-decoration:none; gap:0; flex-shrink:0; }
+.nav-right { display:flex; align-items:center; gap:40px; }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links li a {
+  font-family:var(--body); font-size:13px; font-weight:500;
+  letter-spacing:.06em; text-transform:uppercase; text-decoration:none;
+  transition:color .2s; white-space:nowrap;
+}
+.nav.transparent .nav-links li a { color:rgba(255,255,255,.8); }
+.nav.transparent .nav-links li a:hover,
+.nav.transparent .nav-links li a.active { color:#fff; }
+.nav.solid .nav-links li a { color:rgba(30,30,30,.5); }
+.nav.solid .nav-links li a:hover,
+.nav.solid .nav-links li a.active { color:var(--blue); }
+.nav-cta {
+  font-family:var(--body); font-size:11px; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; text-decoration:none;
+  padding:10px 24px; border-radius:1px; transition:all .2s; white-space:nowrap;
+}
+.nav.transparent .nav-cta { color:#fff; border:1.5px solid rgba(255,255,255,.5); }
+.nav.transparent .nav-cta:hover { background:#fff; color:var(--blue); border-color:#fff; }
+.nav.solid .nav-cta { color:#fff; background:var(--blue); border:1.5px solid var(--blue); }
+.nav.solid .nav-cta:hover { background:var(--blue-dk); border-color:var(--blue-dk); }
+
+/* ── HERO CARRUSEL — slide left ── */
+.hero { position:relative; height:100vh; min-height:600px; overflow:hidden; }
+.slides { position:relative; width:100%; height:100%; }
+.slide {
+  position:absolute; inset:0;
+  transform:translateX(100%);
+  transition:transform .65s cubic-bezier(.4,0,.2,1);
+  background-size:cover; background-position:center;
+  z-index:1;
+}
+.slide.active { transform:translateX(0); z-index:2; }
+.slide.leaving { transform:translateX(-100%); z-index:1; }
+.slide-overlay { position:absolute; inset:0; background:rgba(10,58,120,.58); }
+.slide-content {
+  position:absolute; bottom:110px; left:80px; z-index:2; max-width:660px;
+}
+.slide-cat {
+  font-family:var(--mono); font-size:12px; font-weight:700;
+  color:rgba(255,255,255,.7); letter-spacing:.22em; text-transform:uppercase;
+  margin-bottom:18px; display:block;
+}
+.slide-title {
+  font-family:var(--display); font-size:clamp(36px,5vw,62px);
+  font-weight:800; color:#fff; line-height:1.05;
+  text-transform:uppercase; letter-spacing:.02em; margin-bottom:28px;
+}
+.slide-btn {
+  display:inline-flex; align-items:center;
+  border:1.5px solid rgba(255,255,255,.6); height:44px; cursor:pointer;
+  text-decoration:none; background:transparent; transition:background .2s, border-color .2s;
+}
+.slide-btn:hover { background:rgba(255,255,255,.12); border-color:#fff; }
+.slide-btn-label {
+  font-family:var(--body); font-size:11px; font-weight:600;
+  color:#fff; padding:0 18px; letter-spacing:.1em; text-transform:uppercase;
+  white-space:nowrap;
+}
+.slide-btn-div { width:1.5px; height:24px; background:rgba(255,255,255,.5); flex-shrink:0; }
+.slide-btn-arrow { font-size:16px; color:#fff; padding:0 16px; }
+.slide-1 { background:linear-gradient(135deg,#0D4FA0 0%,#0A3A78 100%); }
+.slide-2 { background:linear-gradient(135deg,#1565C8 0%,#0A3A78 100%); }
+.slide-3 { background:linear-gradient(135deg,#0A3A78 0%,#042C53 100%); }
+.hero-sq1 { position:absolute; top:110px; right:80px; width:20px; height:20px; background:var(--blue); opacity:.85; z-index:3; pointer-events:none; }
+.hero-sq2 { position:absolute; top:134px; right:106px; width:12px; height:12px; background:rgba(255,255,255,.5); z-index:3; pointer-events:none; }
+.hero-sq3 { position:absolute; top:118px; right:118px; width:14px; height:14px; background:var(--blue-md); opacity:.55; z-index:3; pointer-events:none; }
+/* controles carrusel — prev/next gap 20px */
+.hero-controls {
+  position:absolute; bottom:34px; left:0; right:0; z-index:10;
+  display:flex; flex-direction:column; align-items:flex-end;
+  padding-right:80px; gap:8px;
+}
+.hero-dots { display:flex; gap:5px; }
+.hero-dot { width:24px; height:3px; background:rgba(255,255,255,.35); cursor:pointer; transition:background .2s; }
+.hero-dot.active { background:#fff; }
+.hero-nav { display:flex; gap:20px; }
+.hero-btn {
+  width:42px; height:42px; display:flex; align-items:center;
+  justify-content:center; font-size:20px; color:#fff;
+  cursor:pointer; border:none; background:transparent; transition:background .2s, transform .15s;
+}
+.hero-btn:hover { transform:scale(1.1); }
+.hero-btn.prev { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); }
+.hero-btn.prev:hover { background:rgba(255,255,255,.28); }
+.hero-btn.next { background:var(--blue); }
+.hero-btn.next:hover { background:var(--blue-dk); }
+
+/* ── CONTENEDOR GLOBAL max-width 1180px ── */
+.areas-section { background:white; padding:48px 0; }
+.areas-container { max-width:1180px; margin:0 auto; padding:0 24px; }
+.section-title {
+  text-align:center; font-family:var(--display); font-size:18px;
+  font-weight:800; color:var(--blue-xdk); letter-spacing:1px;
+  text-transform:uppercase; margin-bottom:24px;
+}
+.areas-row { display:flex; width:100%; height:300px; overflow:hidden; border-radius:2px; }
+.area-blk {
+  flex:1; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:flex .35s ease; text-decoration:none;
+}
+.area-blk:hover { flex:1.6; }
+.area-blk p {
+  font-family:var(--display); font-size:10px; font-weight:800;
+  letter-spacing:1.5px; text-align:center; line-height:1.7;
+  margin:0; text-transform:uppercase; padding:0 8px;
+}
+.ab1 { background:var(--blue-xdk); } .ab1 p { color:white; }
+.ab2 { background:var(--blue); } .ab2 p { color:white; }
+.ab3 { background:var(--gray-bg); } .ab3 p { color:var(--blue-xdk); }
+.ab4 { background:var(--blue-lt); } .ab4 p { color:var(--blue-xdk); }
+.areas-btn-wrap { display:flex; justify-content:center; padding-top:24px; }
+
+/* ── BOTONES GLOBALES ── */
+.split-btn {
+  display:inline-flex; align-items:center; background:none;
+  border:1.5px solid var(--blue); cursor:pointer; height:38px;
+  text-decoration:none; transition:background .2s, border-color .2s;
+}
+.split-btn:hover { background:var(--blue); }
+.split-btn:hover .split-btn-label { color:white; }
+.split-btn:hover .split-btn-div { background:rgba(255,255,255,.4); }
+.split-btn:hover .split-btn-arrow { color:white; }
+.split-btn-label {
+  font-family:var(--body); font-size:11px; font-weight:600;
+  color:var(--blue-xdk); padding:0 16px; letter-spacing:.08em; text-transform:uppercase;
+  transition:color .2s;
+}
+.split-btn-div { width:1.5px; height:20px; background:var(--blue); transition:background .2s; }
+.split-btn-arrow { font-size:13px; color:var(--blue); padding:0 14px; transition:color .2s; }
+
+/* ── NOTICIAS ── */
+.news-section { background:white; padding:48px 0; }
+.news-container { max-width:1180px; margin:0 auto; padding:0 24px; }
+.news-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-top:24px; }
+.news-card {
+  position:relative; overflow:hidden; cursor:pointer;
+  height:280px; background:#ddd;
+}
+.news-img {
+  width:100%; height:100%; background-size:cover; background-position:center;
+  transition:transform .4s ease;
+}
+.news-card:hover .news-img { transform:scale(1.05); }
+.nc1 { background:linear-gradient(135deg,#B5D4F4 0%,#85B7EB 100%); }
+.nc2 { background:linear-gradient(135deg,#0A3A78 0%,#1565C8 100%); }
+.nc3 { background:linear-gradient(135deg,#378ADD 0%,#0A3A78 100%); }
+.nc4 { background:linear-gradient(135deg,#85B7EB 0%,#378ADD 100%); }
+.news-box {
+  position:absolute; bottom:0; right:0; width:60%;
+  background:white; padding:18px;
+  border-top:3px solid transparent; transition:border-color .3s ease, opacity .3s ease;
+}
+.news-card:hover .news-box { opacity:0; }
+.news-cat {
+  font-family:var(--mono); font-size:9px; font-weight:600;
+  color:var(--blue); letter-spacing:.15em; text-transform:uppercase; margin-bottom:7px;
+}
+.news-title {
+  font-family:var(--display); font-size:13px; font-weight:800;
+  color:var(--blue-xdk); line-height:1.35; margin-bottom:7px;
+}
+.news-desc { font-size:11px; color:var(--gray-mid); line-height:1.55; }
+/* overlay semitransparente desde abajo */
+.news-overlay {
+  position:absolute; inset:0; background:rgba(13,79,160,.78);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:20px; transform:translateY(100%); transition:transform .35s ease;
+}
+.news-card:hover .news-overlay { transform:translateY(0); }
+.no-cat { font-family:var(--mono); font-size:9px; font-weight:700; color:rgba(255,255,255,.75); letter-spacing:.18em; text-transform:uppercase; margin-bottom:8px; }
+.no-title { font-family:var(--display); font-size:15px; font-weight:800; color:white; line-height:1.25; margin-bottom:8px; }
+.no-desc { font-size:12px; color:rgba(255,255,255,.92); line-height:1.6; margin-bottom:12px; }
+.no-meta { display:flex; align-items:center; justify-content:space-between; padding-top:10px; border-top:1px solid rgba(255,255,255,.25); }
+.no-date { font-family:var(--mono); font-size:9px; color:rgba(255,255,255,.65); letter-spacing:.08em; }
+.no-link { font-family:var(--body); font-size:10px; font-weight:600; color:white; letter-spacing:.08em; text-transform:uppercase; display:flex; align-items:center; gap:6px; }
+.news-sq1 { position:absolute; top:12px; left:12px; width:12px; height:12px; background:var(--blue); opacity:.85; pointer-events:none; z-index:1; }
+.news-sq2 { position:absolute; top:26px; left:26px; width:8px; height:8px; background:white; border:1px solid var(--gray-lt); opacity:.8; pointer-events:none; z-index:1; }
+.news-btn-wrap { display:flex; justify-content:center; margin-top:24px; }
+.solid-btn {
+  display:inline-flex; align-items:center; background:var(--blue);
+  border:1.5px solid var(--blue); cursor:pointer; height:40px; text-decoration:none;
+  transition:background .2s, border-color .2s;
+}
+.solid-btn:hover { background:white; border-color:var(--blue); }
+.solid-btn:hover .solid-btn-label { color:var(--blue); }
+.solid-btn:hover .solid-btn-div { background:rgba(21,101,200,.3); }
+.solid-btn:hover .solid-btn-arrow { color:var(--blue); }
+.solid-btn-label {
+  font-family:var(--body); font-size:11px; font-weight:600;
+  color:white; padding:0 18px; letter-spacing:.08em; text-transform:uppercase;
+  transition:color .2s;
+}
+.solid-btn-div { width:1px; height:20px; background:rgba(255,255,255,.4); transition:background .2s; }
+.solid-btn-arrow { font-size:14px; color:white; padding:0 14px; transition:color .2s; }
+
+/* ── EQUIPO ── */
+.team-section { background:white; padding:36px 0 0; }
+.team-container { max-width:1180px; margin:0 auto; padding:0 24px; }
+
+/* carrusel socios — 3 siempre visibles, loop infinito */
+.socios-carousel { position:relative; overflow:hidden; margin-bottom:40px; }
+.socios-track {
+  display:flex; gap:20px;
+  transition:transform .55s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.socio {
+  flex:0 0 calc((100% - 40px) / 3);
+  height:280px; position:relative; overflow:hidden;
+  cursor:pointer; background:var(--gray-lt);
+}
+.socio-img {
+  width:100%; height:100%; object-fit:cover;
+  background:linear-gradient(160deg,#B5D4F4 0%,#85B7EB 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+/* hover socios — desde abajo semitransparente, texto arriba, sin número */
+.socio-overlay {
+  position:absolute; inset:0; background:rgba(13,79,160,.78);
+  display:flex; flex-direction:column; justify-content:flex-start;
+  padding:20px; transform:translateY(100%); transition:transform .35s ease;
+}
+.socio:hover .socio-overlay { transform:translateY(0); }
+.socio-exp { display:none; } /* número años eliminado */
+.socio-name { font-family:var(--display); font-size:18px; font-weight:800; color:white; line-height:1.2; margin-bottom:6px; }
+.socio-role { font-family:var(--mono); font-size:11px; color:rgba(255,255,255,.8); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px; }
+.socio-spec { font-family:var(--serif); font-size:15px; font-style:italic; color:rgba(255,255,255,.75); margin-bottom:14px; }
+.socio-li {
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3);
+  padding:7px 12px; font-family:var(--mono); font-size:9px;
+  font-weight:600; color:white; letter-spacing:.06em; text-transform:uppercase;
+  cursor:pointer; transition:background .2s; margin-top:auto;
+}
+.socio-li:hover { background:rgba(255,255,255,.28); }
+
+/* grid full-width — 10 cols × 3 filas, sin gap, 144×154px por celda */
+.team-grid {
+  display:grid;
+  grid-template-columns:repeat(10, 144px);
+  grid-template-rows:repeat(3, 154px);
+  gap:0;
+  width:1440px; /* desborda intencionalmente para cubrir pantalla */
+  margin-top:0;
+}
+.t-cell { width:144px; height:154px; position:relative; overflow:hidden; cursor:pointer; }
+.t-foto { width:100%; height:100%; background:linear-gradient(135deg,#C8C8C8 0%,#E8E8E8 100%); display:flex; align-items:center; justify-content:center; }
+.t-foto span { font-size:9px; color:#aaa; text-align:center; }
+/* hover grid equipo — azul semitransparente, texto en zona superior */
+.t-overlay {
+  position:absolute; inset:0; background:rgba(13,79,160,.78);
+  display:flex; flex-direction:column; justify-content:flex-start;
+  padding:12px 10px; transform:translateY(100%); transition:transform .3s ease;
+}
+.t-cell:hover .t-overlay { transform:translateY(0); }
+.t-name { font-family:var(--display); font-size:11px; font-weight:800; color:white; line-height:1.3; }
+.t-area { font-family:var(--mono); font-size:9px; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:.06em; margin-top:5px; }
+.team-btn-wrap { display:flex; justify-content:center; padding:24px 0 28px; background:white; margin-top:0; }
+
+/* ── RECONOCIMIENTOS ── */
+.recon-section { background:var(--gray-bg); padding:40px 0 36px; }
+.recon-container { max-width:1180px; margin:0 auto; padding:0 24px; }
+.toggle-wrap { display:flex; justify-content:center; gap:0; margin-bottom:32px; }
+.tog {
+  padding:10px 32px; font-family:var(--body); font-size:11px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+  border:1.5px solid var(--blue); background:white; color:var(--blue);
+  transition:all .2s;
+}
+.tog:first-child { border-right:none; }
+.tog.active { background:var(--blue); color:white; }
+.tog:not(.active):hover { background:var(--blue-lt); color:var(--blue-xdk); }
+.recon-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.recon-panel { display:none; }
+.recon-panel.active { display:block; }
+.recon-card {
+  background:white; position:relative; overflow:hidden;
+  cursor:pointer; height:190px; display:flex;
+  flex-direction:column; justify-content:space-between; padding:18px;
+}
+.recon-date { font-family:var(--mono); font-size:10px; font-weight:700; color:var(--blue); letter-spacing:.1em; }
+.recon-name { font-family:var(--display); font-size:13px; font-weight:800; color:var(--blue-xdk); line-height:1.3; margin-top:4px; }
+.recon-logo { width:80px; height:36px; background:var(--gray-bg); display:flex; align-items:center; justify-content:center; margin-top:auto; }
+.recon-logo span { font-family:var(--mono); font-size:8px; color:var(--gray-mid); }
+.recon-overlay {
+  position:absolute; inset:0; background:var(--blue-xdk);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:18px; transform:translateY(100%); transition:transform .35s ease;
+}
+.recon-card:hover .recon-overlay { transform:translateY(0); }
+.ov-year { font-family:var(--display); font-size:32px; font-weight:800; color:rgba(255,255,255,.15); line-height:1; margin-bottom:6px; }
+.ov-title { font-family:var(--display); font-size:12px; font-weight:800; color:white; line-height:1.3; margin-bottom:8px; }
+.ov-desc { font-size:10px; color:rgba(255,255,255,.65); line-height:1.55; }
+.rc-sq1 { position:absolute; top:10px; right:10px; width:10px; height:10px; background:var(--blue); opacity:.6; pointer-events:none; }
+.rc-sq2 { position:absolute; top:22px; right:22px; width:7px; height:7px; background:rgba(255,255,255,.5); border:1px solid var(--gray-lt); pointer-events:none; }
+.recon-btn-wrap { display:flex; justify-content:center; margin-top:20px; }
+
+/* ── FOOTER ── */
+.footer { background:white; border-top:2px solid var(--blue); }
+.footer-inner { max-width:950px; margin:0 auto; padding:0 24px; }
+.footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding:52px 0 44px; position:relative; }
+.footer-sq1 { position:absolute; top:0; right:0; width:16px; height:16px; background:var(--blue); opacity:.7; }
+.footer-sq2 { position:absolute; top:18px; right:18px; width:10px; height:10px; background:var(--blue-lt); opacity:.5; }
+.fl-logo { display:flex; align-items:center; gap:0; margin-bottom:14px; }
+.fl-bpp { font-family:var(--display); font-size:36px; font-weight:800; color:var(--blue-xdk); line-height:1; letter-spacing:-1px; }
+.fl-vl { width:1.5px; height:40px; background:var(--blue); margin:0 14px; }
+.fl-names { display:flex; flex-direction:column; }
+.fl-name { font-family:var(--mono); font-size:10px; font-weight:600; color:var(--blue-xdk); letter-spacing:1.5px; line-height:1.55; }
+.fl-sub { font-family:var(--mono); font-size:8px; letter-spacing:.18em; text-transform:uppercase; color:var(--gray-mid); margin-bottom:18px; }
+.fl-tagline { font-family:var(--serif); font-size:14px; font-style:italic; color:#aaa; line-height:1.7; }
+.fc-title { font-family:var(--mono); font-size:10px; font-weight:700; color:var(--blue-xdk); letter-spacing:.22em; text-transform:uppercase; margin-bottom:20px; padding-bottom:10px; border-bottom:1.5px solid var(--blue); }
+.fc-link { font-size:13px; color:#888; font-weight:400; text-decoration:none; padding:8px 0; border-bottom:.5px solid #F0F0F0; display:flex; align-items:center; justify-content:space-between; transition:color .2s; }
+.fc-link:hover { color:var(--blue); }
+.fc-link:last-child { border-bottom:none; }
+.fc-link-ar { font-size:12px; color:var(--blue); opacity:0; transition:opacity .2s; }
+.fc-link:hover .fc-link-ar { opacity:1; }
+.footer-bottom { border-top:.5px solid var(--gray-lt); padding:18px 0; display:flex; justify-content:space-between; align-items:center; }
+.footer-copy { font-size:11px; color:#aaa; font-weight:300; }
+.footer-links { display:flex; gap:20px; }
+.footer-link { font-family:var(--mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#aaa; text-decoration:none; transition:color .2s; }
+.footer-link:hover { color:var(--blue); }
+
+/* ── FAB WHATSAPP ── */
+.fab {
+  position:fixed; bottom:36px; right:36px; z-index:9999;
+  display:flex; align-items:center; gap:10px;
+  background:var(--blue); border-radius:6px;
+  padding:12px 20px 12px 14px;
+  box-shadow:0 4px 20px rgba(21,101,200,.35);
+  transition:box-shadow .2s, transform .2s;
+  text-decoration:none;
+}
+.fab:hover { box-shadow:0 6px 28px rgba(21,101,200,.5); transform:translateY(-2px); }
+.fab-icon { width:22px; height:22px; flex-shrink:0; }
+.fab-text { display:flex; flex-direction:column; gap:1px; }
+.fab-label { font-family:var(--body); font-size:10px; font-weight:700; color:white; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; line-height:1.2; }
+.fab-sub { font-family:var(--mono); font-size:8px; font-weight:400; color:rgba(255,255,255,.65); letter-spacing:.03em; white-space:nowrap; }
+.fab-sq1 { position:fixed; bottom:96px; right:36px; width:10px; height:10px; background:var(--blue-xdk); opacity:.6; pointer-events:none; z-index:9998; }
+.fab-sq2 { position:fixed; bottom:108px; right:50px; width:7px; height:7px; background:rgba(255,255,255,.5); border:1px solid var(--gray-lt); pointer-events:none; z-index:9998; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — breakpoints generales
+   ══════════════════════════════════════ */
+
+/* ── LARGE SCREENS (≥1440px) ── */
+@media (min-width: 1440px) {
+  .areas-container,
+  .news-container,
+  .team-container,
+  .recon-container,
+  .footer-inner { max-width:1320px; }
+  .slide-content { left:120px; max-width:780px; }
+  .nav { padding:0 120px; }
+  .topbar { padding:0 120px; }
+}
+
+/* ── MEDIUM SCREENS (768px – 1179px) ── */
+@media (max-width: 1179px) {
+  .areas-container,
+  .news-container,
+  .team-container,
+  .recon-container,
+  .footer-inner { max-width:96%; padding:0 16px; }
+
+  .nav { padding:0 32px; }
+  .topbar { padding:0 32px; gap:16px; }
+  .tb-item:nth-child(4),
+  .tb-item:nth-child(5) { display:none; } /* oculta tel y email en topbar */
+
+  .slide-content { left:40px; max-width:580px; }
+  .slide-title { font-size:clamp(28px,4vw,48px); }
+
+  .news-grid { gap:32px; }
+
+  .socios-track { gap:12px; }
+  .socio { flex:0 0 calc((100% - 24px) / 3); height:240px; }
+
+  .team-grid {
+    grid-template-columns:repeat(6,1fr);
+    grid-template-rows:auto;
+    width:100%; margin-left:0;
+  }
+  .t-cell { width:auto; height:auto; aspect-ratio:1; }
+
+  .recon-grid { grid-template-columns:repeat(2,1fr); }
+
+  .footer-top { grid-template-columns:1fr 1fr; gap:32px; }
+}
+
+/* ── TABLET (600px – 767px) ── */
+@media (max-width: 767px) {
+  body { padding-top:36px; }
+
+  .topbar { padding:0 20px; gap:12px; }
+  .tb-item { display:none; }
+  .tb-wa { padding-right:0; border-right:none; font-size:9px; }
+  .tb-sep { display:none; }
+
+  .nav { padding:0 20px; height:60px; }
+  .nav-links { gap:20px; }
+  .nav-links li a { font-size:10px; }
+  .nav-cta { padding:8px 14px; font-size:9px; }
+
+  .slide-content { left:24px; bottom:80px; max-width:90%; }
+  .slide-title { font-size:clamp(22px,5vw,36px); }
+  .slide-cat { font-size:10px; }
+
+  .areas-row { height:220px; }
+  .area-blk p { font-size:8px; letter-spacing:1px; }
+
+  .news-grid { grid-template-columns:1fr; gap:24px; }
+  .news-card { height:240px; }
+  .news-box { width:75%; }
+
+  .socios-track { gap:10px; }
+  .socio { flex:0 0 calc((100% - 20px) / 3); height:200px; }
+  .socio-name { font-size:13px; }
+
+  .team-grid {
+    grid-template-columns:repeat(4,1fr);
+    width:100%; margin-left:0;
+  }
+  .t-cell { width:auto; height:auto; aspect-ratio:1; }
+
+  .recon-grid { grid-template-columns:repeat(2,1fr); }
+
+  .footer-top { grid-template-columns:1fr; gap:28px; padding:36px 0 28px; }
+  .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+
+  .hero-controls { padding-right:24px; }
+  .section-title { font-size:15px; }
+}
+
+/* ── MOBILE (< 600px) ── */
+@media (max-width: 599px) {
+  .nav-links { display:none; } /* ocultar links en mobile — solo logo + CTA */
+  .nav { padding:0 16px; }
+
+  .slide-content { left:16px; bottom:70px; }
+  .slide-title { font-size:clamp(20px,6vw,30px); }
+  .slide-btn-label { font-size:9px; padding:0 12px; }
+
+  .areas-row { height:180px; overflow-x:auto; flex-wrap:nowrap; }
+  .area-blk { min-width:100px; flex:0 0 100px; }
+  .area-blk p { font-size:7px; }
+
+  .news-grid { grid-template-columns:1fr; gap:16px; }
+  .news-card { height:220px; }
+  .news-box { width:85%; }
+
+  .socio { flex:0 0 calc((100% - 10px) / 2); height:180px; }
+  .socios-track { gap:5px; }
+
+  .team-grid {
+    grid-template-columns:repeat(3,1fr);
+    width:100%; margin-left:0;
+  }
+  .t-cell { width:auto; height:auto; aspect-ratio:1; }
+
+  .recon-grid { grid-template-columns:1fr; }
+  .recon-card { height:160px; }
+
+  .footer-top { grid-template-columns:1fr; }
+  .footer-inner { padding:0 16px; }
+
+  .fab { bottom:20px; right:16px; padding:10px 14px 10px 10px; }
+  .fab-sub { display:none; }
+
+  .hero-controls { padding-right:16px; }
+  .hero-nav { gap:10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="https://wa.me/56949409721" class="tb-wa" target="_blank">
+    <svg class="tb-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="rgba(255,255,255,.3)"/><path d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z" fill="white"/></svg>
+    Agendar por WhatsApp
+  </a>
+  <div class="tb-sep"></div>
+  <a href="tel:+56949409721" class="tb-item">
+    <svg class="tb-icon" viewBox="0 0 16 16" fill="none"><path d="M3 1h3l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L11.5 9l4 1.5V14c0 1.1-.9 2-2 2C6.4 16 0 9.6 0 3c0-1.1.9-2 2-2h1z" fill="rgba(255,255,255,.45)"/></svg>
+    +56 9 4940 9721
+  </a>
+  <div class="tb-sep"></div>
+  <a href="/cdn-cgi/l/email-protection#b9d0d7dfd6f9dbc9c9d8dbd6ded8ddd6ca97dad5" class="tb-item">
+    <svg class="tb-icon" viewBox="0 0 16 12" fill="none"><rect x="1" y="1" width="14" height="10" rx="2" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/><path d="M1 3l7 5 7-5" stroke="rgba(255,255,255,.45)" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <span class="__cf_email__" data-cfemail="244d4a424b6446545445464b4345404b570a4748">[email&#160;protected]</span>
+  </a>
+  <div class="tb-sep"></div>
+  <a href="#" class="tb-item">
+    <svg class="tb-icon" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,.45)"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="rgba(255,255,255,.45)" stroke-width="1.4" stroke-linecap="round"/></svg>
+    LinkedIn
+  </a>
+</div>
+
+<!-- NAV -->
+<nav class="nav transparent" id="main-nav">
+  <a href="#" class="nav-logo" id="nav-logo">
+    <svg width="200" height="44" viewBox="0 0 210 48" fill="none">
+      <text x="0" y="36" font-family="Montserrat,sans-serif" font-weight="800" font-size="40" letter-spacing="-1" fill="#FFFFFF">BPP</text>
+      <rect x="108" y="6" width="2" height="36" fill="#FFFFFF" rx="1"/>
+      <text x="118" y="18" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#FFFFFF">BERRÍOS</text>
+      <text x="118" y="31" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#FFFFFF">PALAVECINO</text>
+      <text x="118" y="44" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#FFFFFF">PINOCHET</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#" class="active">Inicio</a></li>
+      <li><a href="#">Áreas</a></li>
+      <li><a href="BPP_Equipo.html">Equipo</a></li>
+      <li><a href="#">El Estudio</a></li>
+      <li><a href="#">Publicaciones</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Contacto</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="slides">
+    <div class="slide active" style="background-image:url('slide1.png');">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-cat">Derecho Laboral</span>
+        <h1 class="slide-title">Experiencia que<br>define resultados.</h1>
+        <a href="#" class="slide-btn">
+          <span class="slide-btn-label">Ver áreas laborales</span>
+          <span class="slide-btn-div"></span>
+          <span class="slide-btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('slide2.png');">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-cat">Litigios y Controversias</span>
+        <h1 class="slide-title">Representación que<br>marca precedentes.</h1>
+        <a href="#" class="slide-btn">
+          <span class="slide-btn-label">Ver litigios</span>
+          <span class="slide-btn-div"></span>
+          <span class="slide-btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('slide3.png');">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-cat">Asesoría Corporativa</span>
+        <h1 class="slide-title">Soluciones jurídicas<br>de precisión.</h1>
+        <a href="#" class="slide-btn">
+          <span class="slide-btn-label">Ver asesoría</span>
+          <span class="slide-btn-div"></span>
+          <span class="slide-btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-sq1"></div>
+  <div class="hero-sq2"></div>
+  <div class="hero-sq3"></div>
+  <div class="hero-controls">
+    <div class="hero-dots">
+      <div class="hero-dot active" onclick="goSlide(0)"></div>
+      <div class="hero-dot" onclick="goSlide(1)"></div>
+      <div class="hero-dot" onclick="goSlide(2)"></div>
+    </div>
+    <div class="hero-nav">
+      <button class="hero-btn prev" onclick="prevSlide()">‹</button>
+      <button class="hero-btn next" onclick="nextSlide()">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE PRÁCTICA -->
+<section class="areas-section">
+  <div class="areas-container">
+    <div class="section-title">Áreas de Práctica</div>
+    <div class="areas-row">
+      <a href="#" class="area-blk ab1"><p>DERECHO<br>DEL<br>TRABAJO</p></a>
+      <a href="#" class="area-blk ab2"><p>LITIGIOS<br>LABORALES</p></a>
+      <a href="#" class="area-blk ab3"><p>ASESORÍA<br>CORPORATIVA</p></a>
+      <a href="#" class="area-blk ab4"><p>DUE<br>DILIGENCE<br>LABORAL</p></a>
+      <a href="#" class="area-blk ab1"><p>NEGOCIACIÓN<br>COLECTIVA</p></a>
+      <a href="#" class="area-blk ab2"><p>CUMPLIMIENTO<br>E<br>INSOLVENCIA</p></a>
+    </div>
+    <div class="areas-btn-wrap">
+      <a href="#" class="split-btn">
+        <span class="split-btn-label">Ver todas</span>
+        <span class="split-btn-div"></span>
+        <span class="split-btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ACTUALIDAD JURÍDICA -->
+<section class="news-section">
+  <div class="news-container">
+    <div class="section-title">Actualidad Jurídica</div>
+    <div class="news-grid">
+
+      <!-- Noticia 1 -->
+      <div class="news-card">
+        <img class="news-img" src="noticia1.png" alt="BPP lidera macro evento judicial laboral" style="object-fit:cover;width:100%;height:100%;position:absolute;inset:0;">
+        <div class="news-sq1"></div><div class="news-sq2"></div>
+        <div class="news-box">
+          <div class="news-cat">Litigios · Hito 2025</div>
+          <div class="news-title">BPP lidera el primer macro evento judicial laboral tras la reforma procesal</div>
+          <div class="news-desc">Más de 100 sentencias favorables en causas contra la Corporación Santiago 2023.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Litigios · Hito 2025</div>
+          <div class="no-title">BPP lidera el primer macro evento judicial laboral tras la reforma procesal</div>
+          <div class="no-desc">Obtuvimos más de 100 sentencias favorables en causas complejas contra la Corporación Santiago 2023, constituyendo el primer macro evento judicial laboral tras la reforma. Un precedente histórico para la litigación laboral en Chile.</div>
+          <div class="no-meta">
+            <span class="no-date">Diciembre 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Noticia 2 -->
+      <div class="news-card">
+        <img class="news-img" src="noticia2.png" alt="Acción judicial contra Multitiendas Corona" style="object-fit:cover;width:100%;height:100%;position:absolute;inset:0;">
+        <div class="news-box">
+          <div class="news-cat">Estrategia Corporativa · Litigios</div>
+          <div class="news-title">Acción judicial contra Multitiendas Corona: declaración de unidad económica del holding</div>
+          <div class="news-desc">BPP impulsa acciones de alta relevancia para establecer responsabilidad del grupo empresarial.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Estrategia Corporativa · Litigios</div>
+          <div class="no-title">Acción judicial contra Multitiendas Corona: declaración de unidad económica del holding</div>
+          <div class="no-desc">Impulsamos acciones de alta relevancia contra Multitiendas Corona S.A. y sus sociedades relacionadas, con el objeto de que se declare la unidad económica del holding. Un caso emblemático en materia de responsabilidad laboral corporativa.</div>
+          <div class="no-meta">
+            <span class="no-date">Noviembre 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Noticia 3 -->
+      <div class="news-card">
+        <img class="news-img" src="noticia3.png" alt="Claudio Palavecino en Universidad de Alcalá" style="object-fit:cover;width:100%;height:100%;position:absolute;inset:0;">
+        <div class="news-sq1"></div><div class="news-sq2"></div>
+        <div class="news-box">
+          <div class="news-cat">Académico · Derecho Internacional</div>
+          <div class="news-title">Claudio Palavecino en la Universidad de Alcalá: Curso de Altos Estudios en España</div>
+          <div class="news-desc">Organizó eventos nacionales e internacionales y fue destacado por sus columnas en el Diario Constitucional.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Académico · Derecho Internacional</div>
+          <div class="no-title">Claudio Palavecino en la Universidad de Alcalá: Curso de Altos Estudios en España</div>
+          <div class="no-desc">Claudio Palavecino Cáceres consolidó su trayectoria mediante la organización de relevantes eventos nacionales e internacionales y actividades académicas en España, destacando el Curso de Altos Estudios impartido junto a la Universidad de Alcalá.</div>
+          <div class="no-meta">
+            <span class="no-date">Octubre 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Noticia 4 -->
+      <div class="news-card">
+        <img class="news-img" src="noticia4.png" alt="BPP incorpora cinco nuevos asociados" style="object-fit:cover;width:100%;height:100%;position:absolute;inset:0;">
+        <div class="news-box">
+          <div class="news-cat">Expansión · Equipo</div>
+          <div class="news-title">BPP incorpora cinco nuevos asociados al área de litigios y supera los 1.100 clientes activos</div>
+          <div class="news-desc">El fortalecimiento del equipo permite asumir desafíos legales de mayor complejidad.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Expansión · Equipo</div>
+          <div class="no-title">BPP incorpora cinco nuevos asociados y supera los 1.100 clientes activos</div>
+          <div class="no-desc">Dimos un paso relevante en el fortalecimiento de nuestro equipo, incorporando a cinco nuevos asociados al área de litigios laborales, consolidando un servicio cercano, eficiente y personalizado para más de 1.100 clientes activos.</div>
+          <div class="no-meta">
+            <span class="no-date">Enero 2026</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="news-btn-wrap">
+      <a href="#" class="solid-btn">
+        <span class="solid-btn-label">Ver todas las noticias</span>
+        <span class="solid-btn-div"></span>
+        <span class="solid-btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RECONOCIMIENTOS — ahora antes del equipo -->
+<section class="recon-section">
+  <div class="recon-container">
+    <div class="section-title">Reconocimientos</div>
+    <div class="toggle-wrap">
+      <div class="tog active" onclick="showTab('rankings',this)">Reconocimientos</div>
+      <div class="tog" onclick="showTab('distinciones',this)">Hitos 2025</div>
+    </div>
+    <div class="recon-panel active" id="tab-rankings">
+      <div class="recon-grid">
+        <div class="recon-card">
+          <div class="rc-sq1"></div><div class="rc-sq2"></div>
+          <div><div class="recon-date">Desde 2018</div><div class="recon-name">Chambers & Partners</div></div>
+          <div class="recon-logo"><img src="reconocimiento1.png" alt="Chambers & Partners" style="max-width:76px;max-height:34px;object-fit:contain;"></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Chambers & Partners — Band 1 Derecho Laboral</div><div class="ov-desc">Reconocidos como firma líder en derecho laboral corporativo en Chile por séptimo año consecutivo.</div></div>
+        </div>
+        <div class="recon-card">
+          <div><div class="recon-date">Desde 2019</div><div class="recon-name">Legal 500</div></div>
+          <div class="recon-logo"><img src="reconocimiento2.png" alt="Legal 500" style="max-width:76px;max-height:34px;object-fit:contain;"></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Legal 500 — Tier 1 Employment</div><div class="ov-desc">Incluidos en la categoría de élite para firmas especializadas en derecho laboral en Latinoamérica.</div></div>
+        </div>
+        <div class="recon-card">
+          <div class="rc-sq1"></div><div class="rc-sq2"></div>
+          <div><div class="recon-date">Desde 2020</div><div class="recon-name">Best Lawyers</div></div>
+          <div class="recon-logo"><img src="reconocimiento3.png" alt="Best Lawyers" style="max-width:76px;max-height:34px;object-fit:contain;"></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Best Lawyers — Labour & Employment</div><div class="ov-desc">Los tres socios de BPP reconocidos individualmente en la categoría de derecho laboral.</div></div>
+        </div>
+        <div class="recon-card">
+          <div><div class="recon-date">Desde 2021</div><div class="recon-name">Leaders League</div></div>
+          <div class="recon-logo"><img src="reconocimiento4.png" alt="Leaders League" style="max-width:76px;max-height:34px;object-fit:contain;"></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Leaders League — Excellent</div><div class="ov-desc">Clasificación Excellent en el ranking latinoamericano de firmas especializadas en empleo.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="recon-panel" id="tab-distinciones">
+      <div class="recon-grid">
+        <div class="recon-card">
+          <div class="rc-sq1"></div><div class="rc-sq2"></div>
+          <div><div class="recon-date">2025</div><div class="recon-name">100+ Sentencias Favorables</div></div>
+          <div class="recon-logo"><span>LITIGACIÓN</span></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Más de 100 sentencias favorables en causas complejas</div><div class="ov-desc">Récord de resultados judiciales en 2025, con especial protagonismo en el primer macro evento judicial laboral chileno tras la reforma procesal laboral.</div></div>
+        </div>
+        <div class="recon-card">
+          <div><div class="recon-date">2025</div><div class="recon-name">1.100+ Clientes Activos</div></div>
+          <div class="recon-logo"><span>CRECIMIENTO</span></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Superamos los 1.100 clientes activos</div><div class="ov-desc">La incorporación de cinco nuevos asociados al área de litigios laborales nos permitió ampliar nuestra capacidad de respuesta y alcanzar más de 1.100 clientes activos con servicio personalizado.</div></div>
+        </div>
+        <div class="recon-card">
+          <div class="rc-sq1"></div><div class="rc-sq2"></div>
+          <div><div class="recon-date">2025</div><div class="recon-name">Of Counsel Destacados</div></div>
+          <div class="recon-logo"><span>EQUIPO</span></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Franco Devillaine y Eduardo Armijo — Of Counsel BPP</div><div class="ov-desc">El aporte de nuestros abogados Of Counsel ha sido fundamental para el desarrollo de proyectos estratégicos y el fortalecimiento de nuestra posición en el mercado legal.</div></div>
+        </div>
+        <div class="recon-card">
+          <div><div class="recon-date">2025</div><div class="recon-name">Estrategia Comunicacional</div></div>
+          <div class="recon-logo"><span>VISIBILIDAD</span></div>
+          <div class="recon-overlay"><div class="ov-year">2025</div><div class="ov-title">Lanzamiento de estrategia comunicacional institucional</div><div class="ov-desc">Iniciamos nuestros lineamientos de estrategia comunicacional con destacada presencia en medios de comunicación y publicaciones jurídicas nacionales.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="recon-btn-wrap">
+      <a href="#" class="split-btn">
+        <span class="split-btn-label">Ver todos</span>
+        <span class="split-btn-div"></span>
+        <span class="split-btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO — después de reconocimientos -->
+<section class="team-section">
+  <div class="team-container">
+    <div class="section-title">Nuestro Equipo</div>
+    <div class="socios-carousel" id="socios-carousel">
+      <div class="socios-track" id="socios-track">
+        <div class="socio">
+          <img src="francisco.webp" alt="Francisco Pinochet Cantwell" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+          <div class="socio-overlay">
+            <div class="socio-name">Francisco Pinochet Cantwell</div>
+            <div class="socio-role">Socio Fundador</div>
+            <div class="socio-spec">Litigios · Compliance</div>
+            <div class="socio-li">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="white"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+              Ver LinkedIn
+            </div>
+          </div>
+        </div>
+        <div class="socio">
+          <img src="claudio.webp" alt="Claudio Palavecino Cáceres" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+          <div class="socio-overlay">
+            <div class="socio-name">Claudio Palavecino Cáceres</div>
+            <div class="socio-role">Socio</div>
+            <div class="socio-spec">Negociación Colectiva · Due Diligence</div>
+            <div class="socio-li">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="white"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+              Ver LinkedIn
+            </div>
+          </div>
+        </div>
+        <div class="socio">
+          <img src="matias.webp" alt="Matías Berríos Fuchslocher" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+          <div class="socio-overlay">
+            <div class="socio-name">Matías Berríos Fuchslocher</div>
+            <div class="socio-role">Socio</div>
+            <div class="socio-spec">Estrategia Laboral · Litigios</div>
+            <div class="socio-li">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="white"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+              Ver LinkedIn
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- grid full-width — 10×3, 144×154px, sin gap -->
+  <div class="team-grid">
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Patricio González</div><div class="t-area">Der. Laboral</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Manuel Gutiérrez</div><div class="t-area">Litigios</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Franco Benavides</div><div class="t-area">Neg. Colectiva</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Polett Rodríguez</div><div class="t-area">Compliance</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Dante Gariboldi</div><div class="t-area">Due Diligence</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">José J. Ossa</div><div class="t-area">Der. Laboral</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Gonzalo Doren</div><div class="t-area">Litigios</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Sofía Hernández</div><div class="t-area">Compliance</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Constanza Godoy</div><div class="t-area">Der. Laboral</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Felipe Kuthe</div><div class="t-area">Litigios</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Valentina Espinoza</div><div class="t-area">Neg. Colectiva</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Lucas Ortiz</div><div class="t-area">Due Diligence</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Macarena Valenzuela</div><div class="t-area">Der. Laboral</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Nicolás Yáñez</div><div class="t-area">Litigios</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Rocío Cartagena</div><div class="t-area">Seg. Social</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Simón Gutiérrez</div><div class="t-area">Estrategia</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Andrea Morales</div><div class="t-area">Der. Laboral</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Rodrigo Pizarro</div><div class="t-area">Litigios</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Camila Reyes</div><div class="t-area">Compliance</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Felipe Araya</div><div class="t-area">Due Diligence</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Isidora Soto</div><div class="t-area">Der. Laboral</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Martín Fuentes</div><div class="t-area">Litigios</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Javiera Bravo</div><div class="t-area">Neg. Colectiva</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Diego Castillo</div><div class="t-area">Estrategia</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Fernanda Lagos</div><div class="t-area">Seg. Social</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Sebastián Moya</div><div class="t-area">Compliance</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Catalina Vera</div><div class="t-area">Der. Laboral</div></div></div>
+    <div class="t-cell"><img src="persona2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Pablo Herrera</div><div class="t-area">Litigios</div></div></div>
+    <div class="t-cell"><img src="persona1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Antonia Muñoz</div><div class="t-area">Due Diligence</div></div></div>
+    <div class="t-cell"><img src="persona3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"><div class="t-overlay"><div class="t-name">Tomás Ibáñez</div><div class="t-area">Der. Laboral</div></div></div>
+  </div>
+  <div class="team-btn-wrap">
+    <a href="#" class="solid-btn" id="team-btn">
+      <span class="solid-btn-label">Ver equipo completo</span>
+      <span class="solid-btn-div"></span>
+      <span class="solid-btn-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-sq1"></div>
+      <div class="footer-sq2"></div>
+      <div>
+        <div class="fl-logo">
+          <span class="fl-bpp">BPP</span>
+          <div class="fl-vl"></div>
+          <div class="fl-names">
+            <span class="fl-name">BERRÍOS</span>
+            <span class="fl-name">PALAVECINO</span>
+            <span class="fl-name">PINOCHET</span>
+          </div>
+        </div>
+        <div class="fl-sub">Abogados · Attorneys & Counselors · Est. 1988</div>
+        <div class="fl-tagline">"Precisión jurídica.<br>Resultados que perduran."</div>
+      </div>
+      <div>
+        <div class="fc-title">El Estudio</div>
+        <a href="#" class="fc-link">Quiénes somos <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Nuestro equipo <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Historia <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Publicaciones <span class="fc-link-ar">→</span></a>
+      </div>
+      <div>
+        <div class="fc-title">Especialización</div>
+        <a href="#" class="fc-link">Derecho del Trabajo <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Litigios <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Asesoría Corporativa <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Due Diligence <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link" style="color:var(--blue);font-weight:500">Ver todas → <span class="fc-link-ar">→</span></a>
+      </div>
+      <div>
+        <div class="fc-title">Contacto</div>
+        <a href="#" class="fc-link">Huérfanos 835, Of. 801 <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Santiago, Chile <span class="fc-link-ar">→</span></a>
+        <a href="tel:+56949409721" class="fc-link">+56 9 4940 9721 <span class="fc-link-ar">→</span></a>
+        <a href="/cdn-cgi/l/email-protection#01686f676e4163717160636e6660656e722f626d" class="fc-link"><span class="__cf_email__" data-cfemail="89e0e7efe6c9ebf9f9e8ebe6eee8ede6faa7eae5">[email&#160;protected]</span> <span class="fc-link-ar">→</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Berríos & Palavecino | Pinochet Abogados. Todos los derechos reservados.</span>
+      <div class="footer-links">
+        <a href="#" class="footer-link">LinkedIn</a>
+        <a href="#" class="footer-link">Política de privacidad</a>
+        <a href="#" class="footer-link">Postulaciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FAB WHATSAPP -->
+<a href="https://wa.me/56949409721" class="fab" target="_blank">
+  <svg class="fab-icon" viewBox="0 0 24 24" fill="none">
+    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="rgba(255,255,255,0.15)"/>
+    <path d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z" fill="white"/>
+  </svg>
+  <div class="fab-text">
+    <span class="fab-label">Agendar consulta</span>
+    <span class="fab-sub">Respuesta en menos de 2h</span>
+  </div>
+</a>
+<div class="fab-sq1"></div>
+<div class="fab-sq2"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── HERO CARRUSEL ──
+// ── HERO CARRUSEL — slide de derecha a izquierda, sin destello, 6s ──
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.hero-dot');
+
+function goSlide(n) {
+  if (n === current) return;
+  const prev = current;
+  current = n;
+  // slide saliente se va a la izquierda
+  slides[prev].classList.remove('active');
+  slides[prev].classList.add('leaving');
+  // slide entrante viene desde la derecha
+  slides[current].classList.add('active');
+  dots.forEach((d,i) => d.classList.toggle('active', i === current));
+  setTimeout(() => slides[prev].classList.remove('leaving'), 700);
+  resetTimer();
+}
+function nextSlide() { goSlide((current + 1) % slides.length); }
+function prevSlide() { goSlide((current - 1 + slides.length) % slides.length); }
+
+let heroTimer;
+function resetTimer() {
+  clearInterval(heroTimer);
+  heroTimer = setInterval(nextSlide, 6000);
+}
+resetTimer();
+
+// ── SOCIOS CARRUSEL — siempre 3 visibles, loop infinito hacia la izquierda ──
+(function() {
+  const track = document.getElementById('socios-track');
+  if (!track) return;
+  const items = Array.from(track.querySelectorAll('.socio'));
+  const n = items.length; // 3 socios
+  // clonar todos al final para loop infinito
+  items.forEach(el => track.appendChild(el.cloneNode(true)));
+  let idx = 0;
+  function getItemW() {
+    return track.querySelectorAll('.socio')[0].offsetWidth + 20;
+  }
+  function advance() {
+    idx++;
+    const w = getItemW();
+    track.style.transition = 'transform .55s cubic-bezier(.4,0,.2,1)';
+    track.style.transform = `translateX(-${idx * w}px)`;
+    // cuando llegamos al final del bloque original, reseteamos sin animación
+    if (idx >= n) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        idx = 0;
+        track.style.transform = 'translateX(0)';
+      }, 580);
+    }
+  }
+  setInterval(advance, 5000);
+})();
+
+// ── NAV SCROLL — logo siempre blanco sobre transparente, azul sobre blanco ──
+const nav = document.getElementById('main-nav');
+const logoEl = document.getElementById('nav-logo');
+
+function updateNav() {
+  const solid = window.scrollY > 60;
+  nav.classList.toggle('transparent', !solid);
+  nav.classList.toggle('solid', solid);
+  const fill = solid ? '#0A3A78' : '#FFFFFF';
+  logoEl.querySelectorAll('text').forEach(t => t.setAttribute('fill', fill));
+}
+window.addEventListener('scroll', updateNav);
+updateNav();
+
+// ── RECONOCIMIENTOS TABS ──
+function showTab(id, el) {
+  document.querySelectorAll('.recon-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tog').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
