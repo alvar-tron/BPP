@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias — BPP Abogados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:     #1565C8;
+  --blue-dk:  #0D4FA0;
+  --blue-xdk: #0A3A78;
+  --blue-md:  #378ADD;
+  --blue-lt:  #85B7EB;
+  --white:    #FFFFFF;
+  --gray-bg:  #F5F5F5;
+  --gray-lt:  #E2E2E2;
+  --gray-mid: #999999;
+  --gray-dk:  #2A2A2A;
+  --display:  'Montserrat', sans-serif;
+  --body:     'Montserrat', sans-serif;
+  --serif:    'Crimson Pro', Georgia, serif;
+  --mono:     'IBM Plex Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--body); background:var(--gray-bg); color:var(--gray-dk); overflow-x:hidden; padding-top:36px; }
+
+/* ── TOPBAR ── */
+.topbar {
+  position:fixed; top:0; left:0; right:0; z-index:300;
+  background:var(--blue-xdk); height:36px;
+  display:flex; align-items:center; justify-content:flex-end;
+  padding:0 80px; gap:24px;
+}
+.tb-item {
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--body); font-size:11px; font-weight:400;
+  color:rgba(255,255,255,.5); text-decoration:none;
+  letter-spacing:.03em; transition:color .2s;
+}
+.tb-item:hover { color:#fff; }
+.tb-sep { width:1px; height:12px; background:rgba(255,255,255,.15); }
+.tb-wa {
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--body); font-size:11px; font-weight:600;
+  color:rgba(255,255,255,.85); text-decoration:none;
+  letter-spacing:.06em; text-transform:uppercase;
+  padding-right:18px; border-right:1px solid rgba(255,255,255,.15);
+  transition:color .2s;
+}
+.tb-wa:hover { color:#fff; }
+.tb-icon { width:12px; height:12px; flex-shrink:0; }
+
+/* ── NAV sólida permanente ── */
+.nav {
+  position:fixed; top:36px; left:0; right:0; height:72px; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 80px; background:#fff; box-shadow:0 1px 0 rgba(0,0,0,.08);
+}
+.nav-logo { display:flex; align-items:center; text-decoration:none; gap:0; flex-shrink:0; }
+.nav-right { display:flex; align-items:center; gap:40px; }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links li a {
+  font-family:var(--body); font-size:13px; font-weight:500;
+  letter-spacing:.06em; text-transform:uppercase; text-decoration:none;
+  color:rgba(30,30,30,.5); transition:color .2s; white-space:nowrap;
+}
+.nav-links li a:hover { color:var(--blue); }
+.nav-links li a.active { color:var(--blue); }
+.nav-cta {
+  font-family:var(--body); font-size:11px; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; text-decoration:none;
+  padding:10px 24px; border-radius:1px; white-space:nowrap;
+  color:#fff; background:var(--blue); border:1.5px solid var(--blue);
+  transition:all .2s;
+}
+.nav-cta:hover { background:var(--blue-dk); }
+
+/* ── HERO DE SECCIÓN (igual al de Áreas) ── */
+.section-hero {
+  margin-top:72px;
+  height:340px;
+  background:var(--blue-xdk);
+  position:relative; overflow:hidden;
+  display:flex; align-items:flex-end;
+}
+.sh-img {
+  position:absolute; inset:0;
+  background-image:url('noticias-hero.png');
+  background-size:cover; background-position:center;
+}
+.sh-overlay { position:absolute; inset:0; background:rgba(10,40,100,.68); }
+.sh-inner {
+  position:relative; z-index:2;
+  width:100%; max-width:1180px; margin:0 auto;
+  padding:0 80px 44px;
+  display:flex; align-items:flex-end; gap:80px;
+}
+.sh-left { flex:0 0 320px; }
+.sh-eyebrow {
+  font-family:var(--mono); font-size:10px; font-weight:700;
+  color:rgba(255,255,255,.6); letter-spacing:.22em; text-transform:uppercase;
+  margin-bottom:14px; display:block;
+}
+.sh-title {
+  font-family:var(--display); font-size:clamp(32px,4vw,52px);
+  font-weight:800; color:#fff; line-height:1.0;
+  text-transform:uppercase; letter-spacing:.02em;
+}
+.sh-right { flex:1; padding-bottom:4px; }
+.sh-desc {
+  font-family:var(--body); font-size:14px; font-weight:400;
+  color:rgba(255,255,255,.72); line-height:1.8;
+}
+.sh-desc p { margin-bottom:14px; }
+.sh-desc p:last-child { margin-bottom:0; }
+.sh-sq1 { position:absolute; top:48px; right:80px; width:18px; height:18px; background:var(--blue); opacity:.85; z-index:3; pointer-events:none; }
+.sh-sq2 { position:absolute; top:70px; right:102px; width:11px; height:11px; background:rgba(255,255,255,.4); z-index:3; pointer-events:none; }
+.sh-sq3 { position:absolute; top:58px; right:114px; width:13px; height:13px; background:var(--blue-md); opacity:.5; z-index:3; pointer-events:none; }
+
+/* ── SECCIÓN NOTICIAS ── */
+.news-section { padding:56px 0 72px; }
+.news-inner { max-width:1180px; margin:0 auto; padding:0 80px; }
+
+/* grilla 2×5 */
+.news-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+}
+
+/* tarjeta de noticia */
+.news-card {
+  position:relative; overflow:hidden; cursor:pointer;
+  height:300px; background:var(--gray-lt);
+}
+.news-img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  display:block;
+  transition:transform .4s ease;
+}
+.news-card:hover .news-img { transform:scale(1.05); }
+
+/* placeholder de imagen hasta tener el archivo */
+.news-img-ph {
+  width:100%; height:100%; display:block;
+  background-size:cover; background-position:center;
+}
+.nc1 { background:linear-gradient(135deg,#B5D4F4 0%,#85B7EB 100%); }
+.nc2 { background:linear-gradient(135deg,#0A3A78 0%,#1565C8 100%); }
+.nc3 { background:linear-gradient(135deg,#378ADD 0%,#0A3A78 100%); }
+.nc4 { background:linear-gradient(135deg,#85B7EB 0%,#378ADD 100%); }
+.nc5 { background:linear-gradient(135deg,#0D4FA0 0%,#85B7EB 100%); }
+.nc6 { background:linear-gradient(135deg,#1565C8 0%,#042C53 100%); }
+.nc7 { background:linear-gradient(135deg,#B5D4F4 0%,#1565C8 100%); }
+.nc8 { background:linear-gradient(135deg,#042C53 0%,#378ADD 100%); }
+.nc9 { background:linear-gradient(135deg,#85B7EB 0%,#0A3A78 100%); }
+.nc10 { background:linear-gradient(135deg,#378ADD 0%,#B5D4F4 100%); }
+
+/* caja blanca reposo */
+.news-box {
+  position:absolute; bottom:0; right:0; width:60%;
+  background:white; padding:18px;
+  border-top:3px solid transparent;
+  transition:border-color .3s ease, opacity .3s ease;
+}
+.news-card:hover .news-box { opacity:0; }
+.news-cat {
+  font-family:var(--mono); font-size:9px; font-weight:600;
+  color:var(--blue); letter-spacing:.15em; text-transform:uppercase;
+  margin-bottom:7px;
+}
+.news-title-box {
+  font-family:var(--display); font-size:13px; font-weight:800;
+  color:var(--blue-xdk); line-height:1.35; margin-bottom:6px;
+}
+.news-desc-box { font-size:11px; color:var(--gray-mid); line-height:1.55; }
+
+/* cuadrados firma */
+.news-sq1 { position:absolute; top:12px; left:12px; width:12px; height:12px; background:var(--blue); opacity:.85; pointer-events:none; z-index:1; }
+.news-sq2 { position:absolute; top:26px; left:26px; width:8px; height:8px; background:white; border:1px solid var(--gray-lt); opacity:.8; pointer-events:none; z-index:1; }
+
+/* overlay hover consistente con homepage */
+.news-overlay {
+  position:absolute; inset:0;
+  background:rgba(13,79,160,.78);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:24px; transform:translateY(100%); transition:transform .35s ease;
+}
+.news-card:hover .news-overlay { transform:translateY(0); }
+.no-cat {
+  font-family:var(--mono); font-size:9px; font-weight:700;
+  color:rgba(255,255,255,.75); letter-spacing:.18em; text-transform:uppercase;
+  margin-bottom:8px;
+}
+.no-title {
+  font-family:var(--display); font-size:16px; font-weight:800;
+  color:white; line-height:1.25; margin-bottom:10px;
+}
+.no-desc { font-size:12px; color:rgba(255,255,255,.85); line-height:1.65; margin-bottom:14px; }
+.no-meta {
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:12px; border-top:1px solid rgba(255,255,255,.25);
+}
+.no-date { font-family:var(--mono); font-size:9px; color:rgba(255,255,255,.6); letter-spacing:.08em; }
+.no-link { font-family:var(--body); font-size:10px; font-weight:600; color:white; letter-spacing:.08em; text-transform:uppercase; }
+
+/* ── FOOTER ── */
+.footer { background:white; border-top:2px solid var(--blue); }
+.footer-inner { max-width:1180px; margin:0 auto; padding:0 24px; }
+.footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding:52px 0 44px; position:relative; }
+.footer-sq1 { position:absolute; top:0; right:0; width:16px; height:16px; background:var(--blue); opacity:.7; }
+.footer-sq2 { position:absolute; top:18px; right:18px; width:10px; height:10px; background:var(--blue-lt); opacity:.5; }
+.fl-logo { display:flex; align-items:center; gap:0; margin-bottom:14px; }
+.fl-bpp { font-family:var(--display); font-size:36px; font-weight:800; color:var(--blue-xdk); line-height:1; letter-spacing:-1px; }
+.fl-vl { width:1.5px; height:40px; background:var(--blue); margin:0 14px; }
+.fl-names { display:flex; flex-direction:column; }
+.fl-name { font-family:var(--mono); font-size:10px; font-weight:600; color:var(--blue-xdk); letter-spacing:1.5px; line-height:1.55; }
+.fl-sub { font-family:var(--mono); font-size:8px; letter-spacing:.18em; text-transform:uppercase; color:var(--gray-mid); margin-bottom:18px; }
+.fl-tagline { font-family:var(--serif); font-size:14px; font-style:italic; color:#aaa; line-height:1.7; }
+.fc-title { font-family:var(--mono); font-size:10px; font-weight:700; color:var(--blue-xdk); letter-spacing:.22em; text-transform:uppercase; margin-bottom:20px; padding-bottom:10px; border-bottom:1.5px solid var(--blue); }
+.fc-link { font-size:13px; color:#888; font-weight:400; text-decoration:none; padding:8px 0; border-bottom:.5px solid #F0F0F0; display:flex; align-items:center; justify-content:space-between; transition:color .2s; }
+.fc-link:hover { color:var(--blue); }
+.fc-link:last-child { border-bottom:none; }
+.fc-link-ar { font-size:12px; color:var(--blue); opacity:0; transition:opacity .2s; }
+.fc-link:hover .fc-link-ar { opacity:1; }
+.footer-bottom { border-top:.5px solid var(--gray-lt); padding:18px 0; display:flex; justify-content:space-between; align-items:center; }
+.footer-copy { font-size:11px; color:#aaa; font-weight:300; }
+.footer-links { display:flex; gap:20px; }
+.footer-link { font-family:var(--mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#aaa; text-decoration:none; transition:color .2s; }
+.footer-link:hover { color:var(--blue); }
+
+/* ── FAB ── */
+.fab {
+  position:fixed; bottom:36px; right:36px; z-index:9999;
+  display:flex; align-items:center; gap:10px;
+  background:var(--blue); border-radius:6px;
+  padding:12px 20px 12px 14px;
+  box-shadow:0 4px 20px rgba(21,101,200,.35);
+  transition:box-shadow .2s, transform .2s; text-decoration:none;
+}
+.fab:hover { box-shadow:0 6px 28px rgba(21,101,200,.5); transform:translateY(-2px); }
+.fab-icon { width:22px; height:22px; flex-shrink:0; }
+.fab-text { display:flex; flex-direction:column; gap:1px; }
+.fab-label { font-family:var(--body); font-size:10px; font-weight:700; color:white; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; line-height:1.2; }
+.fab-sub { font-family:var(--mono); font-size:8px; color:rgba(255,255,255,.65); letter-spacing:.03em; white-space:nowrap; }
+.fab-sq1 { position:fixed; bottom:96px; right:36px; width:10px; height:10px; background:var(--blue-xdk); opacity:.6; pointer-events:none; z-index:9998; }
+.fab-sq2 { position:fixed; bottom:108px; right:50px; width:7px; height:7px; background:rgba(255,255,255,.5); border:1px solid var(--gray-lt); pointer-events:none; z-index:9998; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:1179px) {
+  .nav { padding:0 32px; }
+  .topbar { padding:0 32px; }
+  .sh-inner { padding:0 32px 36px; gap:48px; }
+  .news-inner { padding:0 32px; }
+  .footer-inner { padding:0 32px; }
+  .news-grid { gap:20px; }
+}
+@media (max-width:767px) {
+  .nav { padding:0 20px; height:60px; }
+  .nav-links { display:none; }
+  .topbar { padding:0 20px; }
+  .section-hero { height:auto; min-height:260px; }
+  .sh-inner { flex-direction:column; gap:20px; padding:24px 20px 28px; }
+  .sh-left { flex:none; }
+  .sh-title { font-size:clamp(26px,6vw,36px); }
+  .news-inner { padding:0 20px; }
+  .news-grid { grid-template-columns:1fr; gap:20px; }
+  .news-card { height:260px; }
+  .news-box { width:80%; }
+  .footer-top { grid-template-columns:1fr; gap:24px; padding:32px 0 24px; }
+  .footer-bottom { flex-direction:column; gap:12px; }
+  .footer-inner { padding:0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="https://wa.me/56949409721" class="tb-wa" target="_blank">
+    <svg class="tb-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="rgba(255,255,255,.3)"/><path d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z" fill="white"/></svg>
+    Agendar por WhatsApp
+  </a>
+  <div class="tb-sep"></div>
+  <a href="tel:+56949409721" class="tb-item">
+    <svg class="tb-icon" viewBox="0 0 16 16" fill="none"><path d="M3 1h3l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L11.5 9l4 1.5V14c0 1.1-.9 2-2 2C6.4 16 0 9.6 0 3c0-1.1.9-2 2-2h1z" fill="rgba(255,255,255,.45)"/></svg>
+    +56 9 4940 9721
+  </a>
+  <div class="tb-sep"></div>
+  <a href="mailto:info@bppabogados.cl" class="tb-item">
+    <svg class="tb-icon" viewBox="0 0 16 12" fill="none"><rect x="1" y="1" width="14" height="10" rx="2" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/><path d="M1 3l7 5 7-5" stroke="rgba(255,255,255,.45)" stroke-width="1.4" stroke-linecap="round"/></svg>
+    info@bppabogados.cl
+  </a>
+  <div class="tb-sep"></div>
+  <a href="#" class="tb-item">
+    <svg class="tb-icon" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,.45)"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="rgba(255,255,255,.45)" stroke-width="1.4" stroke-linecap="round"/></svg>
+    LinkedIn
+  </a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="./index.html" class="nav-logo">
+    <svg width="200" height="44" viewBox="0 0 210 48" fill="none">
+      <text x="0" y="36" font-family="Montserrat,sans-serif" font-weight="800" font-size="40" letter-spacing="-1" fill="#0A3A78">BPP</text>
+      <rect x="108" y="6" width="2" height="36" fill="#1565C8" rx="1"/>
+      <text x="118" y="18" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#0A3A78">BERRÍOS</text>
+      <text x="118" y="31" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#0A3A78">PALAVECINO</text>
+      <text x="118" y="44" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#0A3A78">PINOCHET</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="./index.html">Inicio</a></li>
+      <li><a href="./BPP_Areas.html">Áreas</a></li>
+      <li><a href="./BPP_Equipo.html">Equipo</a></li>
+      <li><a href="./BPP_Noticias.html" class="active">Noticias</a></li>
+      <li><a href="#">El Estudio</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Contacto</a>
+  </div>
+</nav>
+
+<!-- HERO DE SECCIÓN -->
+<section class="section-hero">
+  <div class="sh-img"></div>
+  <div class="sh-overlay"></div>
+  <div class="sh-sq1"></div>
+  <div class="sh-sq2"></div>
+  <div class="sh-sq3"></div>
+  <div class="sh-inner">
+    <div class="sh-left">
+      <span class="sh-eyebrow">Actualidad · BPP Abogados</span>
+      <h1 class="sh-title">Noticias</h1>
+    </div>
+    <div class="sh-right">
+      <div class="sh-desc">
+        <p>Seguimos de cerca la evolución del derecho laboral chileno y compartimos nuestra visión sobre las materias más relevantes del debate jurídico nacional e internacional.</p>
+        <p>Nuestros socios y asociados publican análisis, columnas y comentarios jurisprudenciales en medios especializados como el Diario Constitucional, La Tercera, Diario Financiero y Radio ADN, entre otros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRILLA DE NOTICIAS 2×5 -->
+<section class="news-section">
+  <div class="news-inner">
+    <div class="news-grid">
+
+      <!-- NOTICIA 1 — desde homepage -->
+      <div class="news-card">
+        <img src="noticia1.png" alt="Macro evento judicial" class="news-img">
+        <div class="news-sq1"></div><div class="news-sq2"></div>
+        <div class="news-box">
+          <div class="news-cat">Litigios · Hito 2025</div>
+          <div class="news-title-box">BPP lidera el primer macro evento judicial laboral tras la reforma procesal</div>
+          <div class="news-desc-box">Más de 100 sentencias favorables contra la Corporación Santiago 2023.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Litigios · Hito 2025</div>
+          <div class="no-title">BPP lidera el primer macro evento judicial laboral tras la reforma procesal</div>
+          <div class="no-desc">Obtuvimos más de 100 sentencias favorables en causas complejas contra la Corporación Santiago 2023, constituyendo el primer macro evento judicial laboral tras la reforma. Un precedente histórico para la litigación laboral en Chile.</div>
+          <div class="no-meta">
+            <span class="no-date">Diciembre 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 2 — desde homepage -->
+      <div class="news-card">
+        <div class="news-img-ph nc2"></div>
+        <img src="noticia2.png" alt="Multitiendas Corona" class="news-img" style="position:absolute;inset:0;">
+        <div class="news-box">
+          <div class="news-cat">Estrategia Corporativa · Litigios</div>
+          <div class="news-title-box">Acción judicial contra Multitiendas Corona: declaración de unidad económica del holding</div>
+          <div class="news-desc-box">BPP impulsa acciones de alta relevancia para establecer responsabilidad del grupo.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Estrategia Corporativa · Litigios</div>
+          <div class="no-title">Acción judicial contra Multitiendas Corona: declaración de unidad económica del holding</div>
+          <div class="no-desc">Impulsamos acciones de alta relevancia contra Multitiendas Corona S.A. y sus sociedades relacionadas, con el objeto de que se declare la unidad económica del holding. Un caso emblemático en materia de responsabilidad laboral corporativa.</div>
+          <div class="no-meta">
+            <span class="no-date">Noviembre 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 3 — desde homepage -->
+      <div class="news-card">
+        <img src="noticia3.png" alt="Universidad de Alcalá" class="news-img">
+        <div class="news-sq1"></div><div class="news-sq2"></div>
+        <div class="news-box">
+          <div class="news-cat">Académico · Derecho Internacional</div>
+          <div class="news-title-box">Claudio Palavecino en la Universidad de Alcalá: Curso de Altos Estudios en España</div>
+          <div class="news-desc-box">Destacado por sus columnas en el Diario Constitucional y eventos internacionales.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Académico · Derecho Internacional</div>
+          <div class="no-title">Claudio Palavecino en la Universidad de Alcalá: Curso de Altos Estudios en España</div>
+          <div class="no-desc">Claudio Palavecino Cáceres consolidó su trayectoria mediante la organización de relevantes eventos nacionales e internacionales y actividades académicas en España, destacando el Curso de Altos Estudios impartido junto a la Universidad de Alcalá.</div>
+          <div class="no-meta">
+            <span class="no-date">Octubre 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 4 — desde homepage -->
+      <div class="news-card">
+        <img src="noticia4.png" alt="Cinco nuevos asociados" class="news-img">
+        <div class="news-box">
+          <div class="news-cat">Expansión · Equipo</div>
+          <div class="news-title-box">BPP incorpora cinco nuevos asociados al área de litigios y supera los 1.100 clientes activos</div>
+          <div class="news-desc-box">Crecimiento del equipo para asumir desafíos legales de mayor complejidad.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Expansión · Equipo</div>
+          <div class="no-title">BPP incorpora cinco nuevos asociados y supera los 1.100 clientes activos</div>
+          <div class="no-desc">Dimos un paso relevante en el fortalecimiento de nuestro equipo, incorporando a cinco nuevos asociados al área de litigios laborales, consolidando un servicio cercano y personalizado para más de 1.100 clientes activos.</div>
+          <div class="no-meta">
+            <span class="no-date">Enero 2026</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 5 — ficticia -->
+      <div class="news-card">
+        <div class="news-img-ph nc5"></div>
+        <div class="news-sq1"></div><div class="news-sq2"></div>
+        <div class="news-box">
+          <div class="news-cat">Jurisprudencia · Derecho Laboral</div>
+          <div class="news-title-box">Corte Suprema establece nuevo estándar en tutela de derechos fundamentales laborales</div>
+          <div class="news-desc-box">Fallo relevante amplía el alcance de protección ante despidos con represalia sindical.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Jurisprudencia · Derecho Laboral</div>
+          <div class="no-title">Corte Suprema establece nuevo estándar en tutela de derechos fundamentales laborales</div>
+          <div class="no-desc">El fallo unifica criterios sobre la carga de la prueba en casos de tutela laboral, ampliando la protección de trabajadores ante prácticas antisindicales y represalias encubiertas por parte de empleadores.</div>
+          <div class="no-meta">
+            <span class="no-date">Septiembre 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 6 — ficticia -->
+      <div class="news-card">
+        <div class="news-img-ph nc6"></div>
+        <div class="news-box">
+          <div class="news-cat">Negociación Colectiva · Análisis</div>
+          <div class="news-title-box">Reforma a la negociación colectiva: implicancias para empresas con sindicatos activos</div>
+          <div class="news-desc-box">Matías Berríos analiza los cambios normativos y su impacto en la estrategia laboral.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Negociación Colectiva · Análisis</div>
+          <div class="no-title">Reforma a la negociación colectiva: implicancias para empresas con sindicatos activos</div>
+          <div class="no-desc">Los cambios introducidos por la nueva normativa obligan a revisar protocolos de negociación y relación con organizaciones sindicales. BPP entrega un análisis práctico para empleadores del sector mid-market.</div>
+          <div class="no-meta">
+            <span class="no-date">Agosto 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 7 — ficticia -->
+      <div class="news-card">
+        <div class="news-img-ph nc7"></div>
+        <div class="news-sq1"></div><div class="news-sq2"></div>
+        <div class="news-box">
+          <div class="news-cat">Due Diligence · M&A</div>
+          <div class="news-title-box">Due diligence laboral en M&A: los pasivos ocultos que pueden frustrar una fusión</div>
+          <div class="news-desc-box">Guía práctica para identificar contingencias laborales antes de cerrar una operación.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Due Diligence · M&A</div>
+          <div class="no-title">Due diligence laboral en M&A: los pasivos ocultos que pueden frustrar una fusión</div>
+          <div class="no-desc">La auditoría laboral preventiva en procesos de fusión y adquisición es crítica. Pasivos en previsión, contratos colectivos vencidos y contingencias por tutela pueden alterar significativamente el valor de la operación.</div>
+          <div class="no-meta">
+            <span class="no-date">Julio 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 8 — ficticia -->
+      <div class="news-card">
+        <div class="news-img-ph nc8"></div>
+        <div class="news-box">
+          <div class="news-cat">Seguridad Social · Legislación</div>
+          <div class="news-title-box">Reforma previsional 2025: efectos en las obligaciones laborales del empleador</div>
+          <div class="news-desc-box">Nuevas exigencias de cotización y su impacto en la planificación de nóminas.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Seguridad Social · Legislación</div>
+          <div class="no-title">Reforma previsional 2025: efectos en las obligaciones laborales del empleador</div>
+          <div class="no-desc">La reforma al sistema de pensiones introduce obligaciones adicionales para empleadores en materia de cotizaciones, registros y plazos. BPP analiza los aspectos críticos que deben atender las empresas antes de su entrada en vigor.</div>
+          <div class="no-meta">
+            <span class="no-date">Junio 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 9 — ficticia -->
+      <div class="news-card">
+        <div class="news-img-ph nc9"></div>
+        <div class="news-sq1"></div><div class="news-sq2"></div>
+        <div class="news-box">
+          <div class="news-cat">Compliance · Cumplimiento</div>
+          <div class="news-title-box">Modelo de prevención de delitos laborales: obligaciones y responsabilidades de la empresa</div>
+          <div class="news-desc-box">Claves para construir un programa de cumplimiento laboral robusto y exigible.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Compliance · Cumplimiento</div>
+          <div class="no-title">Modelo de prevención de delitos laborales: obligaciones y responsabilidades de la empresa</div>
+          <div class="no-desc">La Ley 20.393 obliga a las empresas a contar con programas de cumplimiento que incluyan materias laborales. BPP explica cómo estructurar un modelo efectivo que reduzca la exposición penal de directivos y personas jurídicas.</div>
+          <div class="no-meta">
+            <span class="no-date">Mayo 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTICIA 10 — ficticia -->
+      <div class="news-card">
+        <div class="news-img-ph nc10"></div>
+        <div class="news-box">
+          <div class="news-cat">Movilidad Global · RRHH</div>
+          <div class="news-title-box">Trabajadores extranjeros en Chile: marco legal, visas y obligaciones previsionales del empleador</div>
+          <div class="news-desc-box">Todo lo que necesita saber antes de contratar talento internacional en su empresa.</div>
+        </div>
+        <div class="news-overlay">
+          <div class="no-cat">Movilidad Global · RRHH</div>
+          <div class="no-title">Trabajadores extranjeros en Chile: marco legal, visas y obligaciones previsionales del empleador</div>
+          <div class="no-desc">La contratación de trabajadores extranjeros en Chile exige cumplir requisitos de visa de trabajo, porcentaje legal de dotación y cotización previsional. BPP entrega una guía práctica para empleadores que incorporan talento transfronterizo.</div>
+          <div class="no-meta">
+            <span class="no-date">Abril 2025</span>
+            <span class="no-link">Leer más →</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fin news-grid -->
+  </div><!-- fin news-inner -->
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-sq1"></div>
+      <div class="footer-sq2"></div>
+      <div>
+        <div class="fl-logo">
+          <span class="fl-bpp">BPP</span>
+          <div class="fl-vl"></div>
+          <div class="fl-names">
+            <span class="fl-name">BERRÍOS</span>
+            <span class="fl-name">PALAVECINO</span>
+            <span class="fl-name">PINOCHET</span>
+          </div>
+        </div>
+        <div class="fl-sub">Abogados · Attorneys & Counselors · Est. 1988</div>
+        <div class="fl-tagline">"Precisión jurídica.<br>Resultados que perduran."</div>
+      </div>
+      <div>
+        <div class="fc-title">El Estudio</div>
+        <a href="#" class="fc-link">Quiénes somos <span class="fc-link-ar">→</span></a>
+        <a href="BPP_Equipo.html" class="fc-link">Nuestro equipo <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Historia <span class="fc-link-ar">→</span></a>
+        <a href="BPP_Noticias.html" class="fc-link">Publicaciones <span class="fc-link-ar">→</span></a>
+      </div>
+      <div>
+        <div class="fc-title">Especialización</div>
+        <a href="BPP_Areas.html" class="fc-link">Derecho del Trabajo <span class="fc-link-ar">→</span></a>
+        <a href="BPP_Areas.html" class="fc-link">Litigios <span class="fc-link-ar">→</span></a>
+        <a href="BPP_Areas.html" class="fc-link">Asesoría Corporativa <span class="fc-link-ar">→</span></a>
+        <a href="BPP_Areas.html" class="fc-link">Due Diligence <span class="fc-link-ar">→</span></a>
+        <a href="BPP_Areas.html" class="fc-link" style="color:var(--blue);font-weight:500">Ver todas → <span class="fc-link-ar">→</span></a>
+      </div>
+      <div>
+        <div class="fc-title">Contacto</div>
+        <a href="#" class="fc-link">Huérfanos 835, Of. 801 <span class="fc-link-ar">→</span></a>
+        <a href="#" class="fc-link">Santiago, Chile <span class="fc-link-ar">→</span></a>
+        <a href="tel:+56949409721" class="fc-link">+56 9 4940 9721 <span class="fc-link-ar">→</span></a>
+        <a href="mailto:info@bppabogados.cl" class="fc-link">info@bppabogados.cl <span class="fc-link-ar">→</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Berríos & Palavecino | Pinochet Abogados. Todos los derechos reservados.</span>
+      <div class="footer-links">
+        <a href="#" class="footer-link">LinkedIn</a>
+        <a href="#" class="footer-link">Política de privacidad</a>
+        <a href="#" class="footer-link">Postulaciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FAB WHATSAPP -->
+<a href="https://wa.me/56949409721" class="fab" target="_blank">
+  <svg class="fab-icon" viewBox="0 0 24 24" fill="none">
+    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="rgba(255,255,255,0.15)"/>
+    <path d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z" fill="white"/>
+  </svg>
+  <div class="fab-text">
+    <span class="fab-label">Agendar consulta</span>
+    <span class="fab-sub">Respuesta en menos de 2h</span>
+  </div>
+</a>
+<div class="fab-sq1"></div>
+<div class="fab-sq2"></div>
+
+</body>
+</html>
