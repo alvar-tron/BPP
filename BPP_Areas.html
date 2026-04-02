@@ -89,7 +89,7 @@ body { font-family:var(--body); background:var(--gray-bg); color:var(--gray-dk);
 }
 .sh-img {
   position:absolute; inset:0;
-  background-image:url('areas-hero.png');
+  background-image:url('./BPP_Areas_Hero.png');
   background-size:cover; background-position:center;
 }
 .sh-overlay { position:absolute; inset:0; background:rgba(10,40,100,.68); }
@@ -218,11 +218,9 @@ body { font-family:var(--body); background:var(--gray-bg); color:var(--gray-dk);
   position:absolute; inset:0;
   display:flex; align-items:center; justify-content:center;
 }
-.ar-img-ph-l {
-  background:linear-gradient(135deg,#C8D8E8 0%,#B0C4D8 100%);
-}
-.ar-img-ph-d {
-  background:linear-gradient(135deg,#1565C8 0%,#0A3A78 100%);
+.ar-img-ph-l-dt { background-image:url('./BPP_Areas_Derecho_Trabajo.png');}
+.ar-img-ph-d-llc {
+  background-image:url('./BPP_Areas_Litigios.png');
   opacity:.7;
 }
 .ar-ph-lbl {
@@ -403,7 +401,7 @@ body { font-family:var(--body); background:var(--gray-bg); color:var(--gray-dk);
         </a>
       </div>
       <div class="ar-right">
-        <div class="ar-img ar-img-ph ar-img-ph-l"><span class="ar-ph-lbl ar-ph-lbl-l">imagen área</span></div>
+        <div class="ar-img ar-img-ph ar-img-ph-l ar-img-ph-l-dt"></div>
         <div class="ar-hover-overlay"></div>
         <div class="ar-sq" style="width:14px;height:14px;background:#1565C8;opacity:.7;right:52px;top:18px;"></div>
         <div class="ar-sq" style="width:9px;height:9px;background:#85B7EB;opacity:.5;right:70px;top:36px;"></div>
@@ -423,7 +421,7 @@ body { font-family:var(--body); background:var(--gray-bg); color:var(--gray-dk);
         </a>
       </div>
       <div class="ar-right">
-        <div class="ar-img ar-img-ph ar-img-ph-d"><span class="ar-ph-lbl ar-ph-lbl-d">imagen área</span></div>
+        <div class="ar-img ar-img-ph ar-img-ph-d ar-img-ph-d-llc"></div>
         <div class="ar-hover-overlay"></div>
         <div class="ar-sq" style="width:13px;height:13px;background:#85B7EB;opacity:.4;right:46px;top:20px;"></div>
         <div class="ar-sq" style="width:9px;height:9px;background:rgba(255,255,255,.2);right:62px;top:38px;"></div>
