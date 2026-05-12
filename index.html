@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BPP Abogados — Berríos Palavecino Pinochet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
   <style>
-
     /* ══════════════════════════════════════
        VARIABLES
     ══════════════════════════════════════ */
     :root {
-      --blue:     #1B64C8;
-      --blue-dk:  #1450A8;
+      --blue: #1B64C8;
+      --blue-dk: #1450A8;
       --blue-xdk: #0A2A5E;
-      --blue-md:  #3D7FD4;
-      --blue-lt:  #85B7EB;
+      --blue-md: #3D7FD4;
+      --blue-lt: #85B7EB;
       --wa-green: #25D366;
-      --li-blue:  #0A66C2;
-      --white:    #FFFFFF;
-      --gray-bg:  #F5F5F5;
-      --gray-lt:  #E2E2E2;
+      --li-blue: #0A66C2;
+      --white: #FFFFFF;
+      --gray-bg: #F5F5F5;
+      --gray-lt: #E2E2E2;
       --gray-mid: #999999;
-      --gray-dk:  #2A2A2A;
-      --area-bg:  #F0EDE6;
+      --gray-dk: #2A2A2A;
+      --area-bg: #F0EDE6;
     }
 
     /* ══════════════════════════════════════
        RESET Y BASE
     ══════════════════════════════════════ */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Montserrat', sans-serif;
       background: var(--gray-bg);
@@ -45,421 +55,1727 @@
        TOPBAR
     ══════════════════════════════════════ */
     .topbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-      background: var(--blue-xdk); height: 36px;
-      display: flex; align-items: center; padding: 0 80px; gap: 18px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 300;
+      background: var(--blue-xdk);
+      height: 36px;
+      display: flex;
+      align-items: center;
+      padding: 0 80px;
+      gap: 18px;
     }
-    .topbar-left    { display: flex; align-items: center; gap: 18px; }
-    .topbar-spacer  { flex: 1; }
-    .topbar-right   { display: flex; align-items: center; gap: 10px; }
-    .topbar-sep     { width: 1px; height: 12px; background: rgba(255,255,255,.15); }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .topbar-spacer {
+      flex: 1;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topbar-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 255, 255, .15);
+    }
 
     .topbar-link {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 11px; color: rgba(255,255,255,.55);
-      text-decoration: none; letter-spacing: .03em; transition: color .2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, .55);
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: color .2s;
     }
-    .topbar-link:hover { color: #fff; }
-    .topbar-link-icon { width: 12px; height: 12px; flex-shrink: 0; }
+
+    .topbar-link:hover {
+      color: #fff;
+    }
+
+    .topbar-link-icon {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
 
     .topbar-btn {
-      display: inline-flex; align-items: center; gap: 7px;
-      height: 24px; padding: 0 12px;
-      font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      text-decoration: none; border-radius: 1px; color: #fff; background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 24px;
+      padding: 0 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 1px;
+      color: #fff;
+      background: transparent;
       transition: background .2s, border-color .2s, transform .15s;
     }
-    .topbar-btn:hover { transform: translateY(-1px); }
-    .topbar-btn-icon  { width: 12px; height: 12px; flex-shrink: 0; }
-    .topbar-btn--wa   { border: 1.5px solid rgba(255,255,255,.45); }
-    .topbar-btn--wa:hover { background: var(--wa-green); border-color: var(--wa-green); }
-    .topbar-btn--li   { border: 1.5px solid rgba(255,255,255,.25); }
-    .topbar-btn--li:hover { background: var(--li-blue); border-color: var(--li-blue); }
-    .topbar-btn-label--short { display: none; }
+
+    .topbar-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .topbar-btn-icon {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+
+    .topbar-btn--wa {
+      border: 1.5px solid rgba(255, 255, 255, .45);
+    }
+
+    .topbar-btn--wa:hover {
+      background: var(--wa-green);
+      border-color: var(--wa-green);
+    }
+
+    .topbar-btn--li {
+      border: 1.5px solid rgba(255, 255, 255, .25);
+    }
+
+    .topbar-btn--li:hover {
+      background: var(--li-blue);
+      border-color: var(--li-blue);
+    }
+
+    .topbar-btn-label--short {
+      display: none;
+    }
 
     /* ══════════════════════════════════════
-       NAV
+       NAV — siempre sólido azul
     ══════════════════════════════════════ */
+    /* ── NAV ── */
     .nav {
-      position: fixed; top: 36px; left: 0; right: 0; height: 72px; z-index: 200;
-      display: flex; align-items: center; justify-content: space-between; padding: 0 80px;
-      transition: background .3s, box-shadow .3s;
+      position: fixed;
+      top: 36px;
+      left: 0;
+      right: 0;
+      height: 72px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      background: var(--blue);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .12);
     }
-    .nav--transparent { background: transparent; }
-    .nav--solid       { background: var(--blue); box-shadow: 0 1px 0 rgba(0,0,0,.08); }
 
-    .nav-logo  { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-    .nav-right { display: flex; align-items: center; gap: 40px; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links li a {
-      font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
-      text-decoration: none; transition: color .2s; white-space: nowrap;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
     }
-    .nav--transparent .nav-links li a           { color: rgba(255,255,255,.7); }
-    .nav--transparent .nav-links li a:hover,
-    .nav--transparent .nav-links li a.active    { color: #fff; }
-    .nav--solid .nav-links li a                 { color: rgba(255,255,255,.75); }
-    .nav--solid .nav-links li a:hover,
-    .nav--solid .nav-links li a.active          { color: #fff; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color .2s;
+      white-space: nowrap;
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #fff;
+    }
 
     .nav-cta {
-      font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-      text-decoration: none; padding: 10px 24px; border-radius: 1px;
-      transition: all .2s; white-space: nowrap;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 24px;
+      color: var(--blue);
+      background: #fff;
+      border: 1.5px solid #fff;
+      transition: background .2s;
+      white-space: nowrap;
     }
-    .nav--transparent .nav-cta       { color: #fff; border: 1.5px solid rgba(255,255,255,.5); }
-    .nav--transparent .nav-cta:hover { background: #fff; color: var(--blue); border-color: #fff; }
-    .nav--solid .nav-cta             { color: var(--blue); background: #fff; border: 1.5px solid #fff; }
-    .nav--solid .nav-cta:hover       { background: rgba(255,255,255,.88); }
+
+    .nav-cta:hover {
+      background: rgba(255, 255, 255, .88);
+    }
 
     /* ══════════════════════════════════════
        HERO
     ══════════════════════════════════════ */
-    .hero { position: relative; height: 80vh; min-height: 520px; overflow: hidden; }
-    .hero-slides { position: relative; width: 100%; height: 100%; }
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
 
     .hero-slide {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       transform: translateX(100%);
-      transition: transform .65s cubic-bezier(.4,0,.2,1);
-      background-size: cover; background-position: center; z-index: 1;
+      transition: transform .65s cubic-bezier(.4, 0, .2, 1);
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
     }
-    .hero-slide--active  { transform: translateX(0);     z-index: 2; }
-    .hero-slide--leaving { transform: translateX(-100%); z-index: 1; }
 
-    .hero-slide-overlay { position: absolute; inset: 0; background: rgba(10,58,120,.58); }
-    .hero-slide-content { position: absolute; bottom: 80px; left: 80px; z-index: 2; max-width: 660px; }
+    .hero-slide--active {
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    .hero-slide--leaving {
+      transform: translateX(-100%);
+      z-index: 1;
+    }
+
+    .hero-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 58, 120, .58);
+    }
+
+    .hero-slide-content {
+      position: absolute;
+      bottom: 80px;
+      left: 240px;
+      z-index: 2;
+      max-width: 580px;
+    }
 
     .hero-slide-category {
-      font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 700;
-      color: rgba(255,255,255,.7); letter-spacing: .22em; text-transform: uppercase;
-      margin-bottom: 18px; display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .7);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: block;
     }
+
     .hero-slide-title {
-      font-size: clamp(36px,5vw,62px); font-weight: 800; color: #fff;
-      line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 28px;
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin-bottom: 28px;
     }
+
     .hero-slide-btn {
-      display: inline-flex; align-items: center;
-      border: 1.5px solid rgba(255,255,255,.6); height: 44px;
-      text-decoration: none; background: transparent;
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid rgba(255, 255, 255, .6);
+      height: 44px;
+      text-decoration: none;
+      background: transparent;
       transition: background .2s, border-color .2s;
     }
-    .hero-slide-btn:hover    { background: rgba(255,255,255,.12); border-color: #fff; }
-    .hero-slide-btn-label    { font-size: 11px; font-weight: 600; color: #fff; padding: 0 18px; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
-    .hero-slide-btn-divider  { width: 1.5px; height: 24px; background: rgba(255,255,255,.5); flex-shrink: 0; }
-    .hero-slide-btn-arrow    { font-size: 16px; color: #fff; padding: 0 16px; }
 
-    .hero-logo { position: absolute; bottom: 28px; right: 80px; z-index: 4; opacity: .9; transition: opacity .2s; }
-    .hero-logo:hover { opacity: 1; }
+    .hero-slide-btn:hover {
+      background: rgba(255, 255, 255, .12);
+      border-color: #fff;
+    }
 
-    /* Cuadrados decorativos del hero */
-    .hero-decor { position: absolute; z-index: 3; pointer-events: none; }
-    .hero-decor--1 { top: 110px; right: 80px;  width: 20px; height: 20px; background: var(--blue);   opacity: .85; }
-    .hero-decor--2 { top: 134px; right: 106px; width: 12px; height: 12px; background: rgba(255,255,255,.5); }
-    .hero-decor--3 { top: 118px; right: 118px; width: 14px; height: 14px; background: var(--blue-md); opacity: .55; }
+    .hero-slide-btn-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      padding: 0 18px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero-slide-btn-divider {
+      width: 1.5px;
+      height: 24px;
+      background: rgba(255, 255, 255, .5);
+      flex-shrink: 0;
+    }
+
+    .hero-slide-btn-arrow {
+      font-size: 16px;
+      color: #fff;
+      padding: 0 16px;
+    }
+
+    /* Hero logo — esquina inferior izquierda, junto al contenido del slide */
+    .hero-logo {
+      position: absolute;
+      bottom: 28px;
+      left: 80px;
+      z-index: 4;
+      opacity: .92;
+      transition: opacity .2s;
+    }
+
+    .hero-logo:hover {
+      opacity: 1;
+    }
+
+    /* Cuadrados decorativos del hero — lado derecho */
+    .hero-decor {
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .hero-decor--1 {
+      top: 110px;
+      right: 80px;
+      width: 20px;
+      height: 20px;
+      background: var(--blue);
+      opacity: .85;
+    }
+
+    .hero-decor--2 {
+      top: 134px;
+      right: 106px;
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, .5);
+    }
+
+    .hero-decor--3 {
+      top: 118px;
+      right: 118px;
+      width: 14px;
+      height: 14px;
+      background: var(--blue-md);
+      opacity: .55;
+    }
 
     .hero-controls {
-      position: absolute; bottom: 34px; left: 0; right: 200px; z-index: 10;
-      display: flex; flex-direction: column; align-items: flex-end; padding-right: 80px; gap: 8px;
+      position: absolute;
+      bottom: 34px;
+      left: 0;
+      right: 200px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-right: 80px;
+      gap: 8px;
     }
-    .hero-dots { display: flex; gap: 5px; }
+
+    .hero-dots {
+      display: flex;
+      gap: 5px;
+    }
+
     .hero-dot {
-      width: 24px; height: 3px; background: rgba(255,255,255,.35);
-      cursor: pointer; transition: background .2s;
+      width: 24px;
+      height: 3px;
+      background: rgba(255, 255, 255, .35);
+      cursor: pointer;
+      transition: background .2s;
     }
-    .hero-dot--active { background: #fff; }
-    .hero-nav         { display: flex; gap: 20px; }
+
+    .hero-dot--active {
+      background: #fff;
+    }
+
+    .hero-nav {
+      display: flex;
+      gap: 20px;
+    }
+
     .hero-nav-btn {
-      width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
-      font-size: 20px; color: #fff; cursor: pointer; border: none; background: transparent;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      background: transparent;
       transition: background .2s, transform .15s;
     }
-    .hero-nav-btn:hover        { transform: scale(1.1); }
-    .hero-nav-btn--prev        { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.4); }
-    .hero-nav-btn--prev:hover  { background: rgba(255,255,255,.28); }
-    .hero-nav-btn--next        { background: var(--blue); }
-    .hero-nav-btn--next:hover  { background: var(--blue-dk); }
+
+    .hero-nav-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .hero-nav-btn--prev {
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .4);
+    }
+
+    .hero-nav-btn--prev:hover {
+      background: rgba(255, 255, 255, .28);
+    }
+
+    .hero-nav-btn--next {
+      background: var(--blue);
+    }
+
+    .hero-nav-btn--next:hover {
+      background: var(--blue-dk);
+    }
 
     /* ══════════════════════════════════════
        LOGROS E HITOS
     ══════════════════════════════════════ */
-    .hitos-section    { background: var(--area-bg); padding: 60px 0; }
-    .hitos-container  { max-width: 1180px; margin: 0 auto; padding: 0 80px; }
-    .hitos-header     { margin-bottom: 36px; }
+    .hitos-section {
+      background: var(--area-bg);
+      padding: 60px 0;
+    }
+
+    .hitos-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    .hitos-header {
+      margin-bottom: 36px;
+    }
+
     .hitos-eyebrow {
-      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700;
-      color: var(--blue); letter-spacing: .22em; text-transform: uppercase;
-      margin-bottom: 10px; display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
     }
+
     .hitos-title {
-      font-size: 20px; font-weight: 800; color: var(--blue-xdk);
-      text-transform: uppercase; letter-spacing: .05em;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--blue-xdk);
+      text-transform: uppercase;
+      letter-spacing: .05em;
     }
-    .hitos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+
+    .hitos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
 
     .hito-card {
-      background: #fff; padding: 32px 28px 28px; position: relative; overflow: hidden;
-      border-bottom: 3px solid transparent; transition: border-color .25s;
+      background: #fff;
+      padding: 32px 28px 28px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid transparent;
+      transition: border-color .25s;
     }
-    .hito-card:hover { border-color: var(--blue); }
-    .hito-card-decor { position: absolute; top: 16px; right: 16px; width: 10px; height: 10px; background: var(--blue); opacity: .55; }
-    .hito-card-number { font-size: 56px; font-weight: 800; color: rgba(27,100,200,.1); line-height: 1; margin-bottom: 14px; }
-    .hito-card-label  { font-size: 14px; font-weight: 800; color: var(--blue-xdk); text-transform: uppercase; letter-spacing: .06em; line-height: 1.3; margin-bottom: 10px; }
-    .hito-card-desc   { font-size: 13px; color: var(--gray-mid); line-height: 1.7; }
+
+    .hito-card:hover {
+      border-color: var(--blue);
+    }
+
+    .hito-card-decor {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 10px;
+      height: 10px;
+      background: var(--blue);
+      opacity: .55;
+    }
+
+    .hito-card-number {
+      font-size: 56px;
+      font-weight: 800;
+      color: rgba(27, 100, 200, .1);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .hito-card-label {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--blue-xdk);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .hito-card-desc {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
 
     /* Bloque "Lo más leído" */
-    .hito-leido { background: var(--blue-xdk); padding: 32px 28px 28px; position: relative; overflow: hidden; }
-    .hito-leido-wave    { position: absolute; inset: 0; opacity: .15; pointer-events: none; }
+    .hito-leido {
+      background: var(--blue-xdk);
+      padding: 32px 28px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hito-leido-wave {
+      position: absolute;
+      inset: 0;
+      opacity: .15;
+      pointer-events: none;
+    }
+
     .hito-leido-eyebrow {
-      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700;
-      color: #4ECDC4; letter-spacing: .18em; text-transform: uppercase;
-      margin-bottom: 8px; display: block; position: relative; z-index: 2;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #4ECDC4;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+      position: relative;
+      z-index: 2;
     }
+
     .hito-leido-title {
-      font-size: 14px; font-weight: 800; color: #fff;
-      text-transform: uppercase; letter-spacing: .05em; margin-bottom: 20px;
-      position: relative; z-index: 2;
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
     }
-    .hito-leido-list { display: flex; flex-direction: column; position: relative; z-index: 2; }
+
+    .hito-leido-list {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
+
     .hito-leido-item {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.1);
-      text-decoration: none; transition: color .2s;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      text-decoration: none;
+      transition: color .2s;
     }
-    .hito-leido-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .hito-leido-item:hover .hito-leido-item-text { color: #fff; }
-    .hito-leido-item-num  { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; color: #4ECDC4; flex-shrink: 0; min-width: 20px; padding-top: 1px; }
-    .hito-leido-item-text { font-size: 12px; color: rgba(255,255,255,.72); line-height: 1.55; transition: color .2s; }
+
+    .hito-leido-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .hito-leido-item:hover .hito-leido-item-text {
+      color: #fff;
+    }
+
+    .hito-leido-item-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #4ECDC4;
+      flex-shrink: 0;
+      min-width: 20px;
+      padding-top: 1px;
+    }
+
+    .hito-leido-item-text {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .72);
+      line-height: 1.55;
+      transition: color .2s;
+    }
 
     /* ══════════════════════════════════════
        EQUIPO
     ══════════════════════════════════════ */
-    .team-section   { background: white; padding: 52px 0 0; }
-    .team-container { max-width: 1180px; margin: 0 auto; padding: 0 80px; }
-    .team-eyebrow {
-      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700;
-      color: var(--blue); letter-spacing: .22em; text-transform: uppercase;
-      margin-bottom: 10px; display: block;
+    .team-section {
+      background: white;
+      padding: 52px 0 0;
     }
-    .team-title { font-size: 20px; font-weight: 800; color: var(--blue-xdk); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 32px; }
+
+    .team-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    .team-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .team-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--blue-xdk);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 32px;
+    }
 
     /* Carrusel socios */
-    .socios-carousel { position: relative; overflow: hidden; }
-    .socios-track    { display: flex; gap: 20px; transition: transform .6s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .socios-carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .socios-track {
+      display: flex;
+      gap: 20px;
+      transition: transform .6s cubic-bezier(.4, 0, .2, 1);
+      will-change: transform;
+    }
+
     .socio {
-      flex: 0 0 calc((100% - 40px) / 3); height: 340px;
-      position: relative; overflow: hidden; cursor: pointer; background: var(--gray-lt);
+      flex: 0 0 calc((100% - 40px) / 3);
+      height: 340px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--gray-lt);
     }
-    .socio img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .4s ease; }
-    .socio:hover img { transform: scale(1.04); }
+
+    .socio img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .socio:hover img {
+      transform: scale(1.04);
+    }
+
     .socio-overlay {
-      position: absolute; inset: 0; background: rgba(13,79,160,.82);
-      display: flex; flex-direction: column; justify-content: flex-start;
-      padding: 28px; transform: translateY(100%); transition: transform .35s ease;
+      position: absolute;
+      inset: 0;
+      background: rgba(13, 79, 160, .82);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 28px;
+      transform: translateY(100%);
+      transition: transform .35s ease;
     }
-    .socio:hover .socio-overlay { transform: translateY(0); }
-    .socio-name { font-size: 18px; font-weight: 800; color: white; line-height: 1.2; margin-bottom: 6px; }
-    .socio-role { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,.8); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
-    .socio-spec { font-family: 'Crimson Pro', Georgia, serif; font-size: 15px; font-style: italic; color: rgba(255,255,255,.75); margin-bottom: 14px; }
+
+    .socio:hover .socio-overlay {
+      transform: translateY(0);
+    }
+
+    .socio-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .socio-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: rgba(255, 255, 255, .8);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .socio-spec {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(255, 255, 255, .75);
+      margin-bottom: 14px;
+    }
+
     .socio-linkedin {
-      display: inline-flex; align-items: center; gap: 5px;
-      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
-      padding: 7px 12px; font-family: 'IBM Plex Mono', monospace; font-size: 9px;
-      font-weight: 600; color: white; letter-spacing: .06em; text-transform: uppercase;
-      cursor: pointer; transition: background .2s; margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .3);
+      padding: 7px 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s;
+      margin-top: auto;
     }
-    .socio-linkedin:hover { background: rgba(255,255,255,.28); }
+
+    .socio-linkedin:hover {
+      background: rgba(255, 255, 255, .28);
+    }
 
     /* Indicadores carrusel socios */
-    .socios-dots { display: flex; justify-content: center; gap: 8px; padding: 16px 0 28px; }
-    .socios-dot  { width: 28px; height: 3px; background: var(--gray-lt); cursor: pointer; transition: background .25s; }
-    .socios-dot--active { background: var(--blue); }
+    .socios-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 0 28px;
+    }
+
+    .socios-dot {
+      width: 28px;
+      height: 3px;
+      background: var(--gray-lt);
+      cursor: pointer;
+      transition: background .25s;
+    }
+
+    .socios-dot--active {
+      background: var(--blue);
+    }
 
     /* Grilla asociados 7×4 full-width */
     .team-grid {
-      display: grid; grid-template-columns: repeat(7,1fr);
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
       grid-template-rows: repeat(4, calc(100vw / 7 * 0.8));
-      gap: 0; width: 100%;
+      gap: 0;
+      width: 100%;
     }
-    .team-cell { position: relative; overflow: hidden; cursor: pointer; }
-    .team-cell img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .4s ease; }
-    .team-cell:hover img { transform: scale(1.05); }
-    .team-cell-overlay {
-      position: absolute; inset: 0; background: rgba(13,79,160,.82);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 12px 11px; transform: translateY(100%); transition: transform .3s ease;
-    }
-    .team-cell:hover .team-cell-overlay { transform: translateY(0); }
-    .team-cell-name { font-size: 11px; font-weight: 800; color: white; line-height: 1.3; }
-    .team-cell-area { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: .06em; margin-top: 4px; }
 
-    .team-cta-wrap { display: flex; justify-content: center; padding: 28px 0; background: white; }
+    .team-cell {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .team-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .team-cell:hover img {
+      transform: scale(1.05);
+    }
+
+    .team-cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13, 79, 160, .82);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px 11px;
+      transform: translateY(100%);
+      transition: transform .3s ease;
+    }
+
+    .team-cell:hover .team-cell-overlay {
+      transform: translateY(0);
+    }
+
+    .team-cell-name {
+      font-size: 11px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.3;
+    }
+
+    .team-cell-area {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: rgba(255, 255, 255, .8);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: 4px;
+    }
+
+    .team-cta-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0;
+      background: white;
+    }
 
     /* ══════════════════════════════════════
        BOTÓN SPLIT — reutilizable
     ══════════════════════════════════════ */
     .btn-split {
-      display: inline-flex; align-items: center; background: none;
-      border: 1.5px solid var(--blue); height: 40px;
-      text-decoration: none; transition: background .2s;
+      display: inline-flex;
+      align-items: center;
+      background: none;
+      border: 1.5px solid var(--blue);
+      height: 40px;
+      text-decoration: none;
+      transition: background .2s;
     }
-    .btn-split:hover                    { background: var(--blue); }
-    .btn-split:hover .btn-split-label   { color: white; }
-    .btn-split:hover .btn-split-divider { background: rgba(255,255,255,.4); }
-    .btn-split:hover .btn-split-arrow   { color: white; }
-    .btn-split-label   { font-size: 11px; font-weight: 600; color: var(--blue-xdk); padding: 0 16px; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
-    .btn-split-divider { width: 1.5px; height: 20px; background: var(--blue); transition: background .2s; }
-    .btn-split-arrow   { font-size: 13px; color: var(--blue); padding: 0 14px; transition: color .2s; }
+
+    .btn-split:hover {
+      background: var(--blue);
+    }
+
+    .btn-split:hover .btn-split-label {
+      color: white;
+    }
+
+    .btn-split:hover .btn-split-divider {
+      background: rgba(255, 255, 255, .4);
+    }
+
+    .btn-split:hover .btn-split-arrow {
+      color: white;
+    }
+
+    .btn-split-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--blue-xdk);
+      padding: 0 16px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .btn-split-divider {
+      width: 1.5px;
+      height: 20px;
+      background: var(--blue);
+      transition: background .2s;
+    }
+
+    .btn-split-arrow {
+      font-size: 13px;
+      color: var(--blue);
+      padding: 0 14px;
+      transition: color .2s;
+    }
 
     /* ══════════════════════════════════════
-       ÁREAS DE PRÁCTICA
+       ÁREAS DE PRÁCTICA — mosaico asimétrico
     ══════════════════════════════════════ */
-    .areas-section    { background: var(--gray-bg); padding: 52px 0 64px; }
-    .areas-container  { padding: 0 48px; }
+    .areas-section {
+      background: var(--blue-xdk);
+      padding: 52px 0 0;
+    }
+
+    .areas-container {
+      padding: 0 48px 0;
+    }
+
     .areas-eyebrow {
-      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700;
-      color: var(--blue); letter-spacing: .22em; text-transform: uppercase;
-      margin-bottom: 10px; display: block;
-    }
-    .areas-title  { font-size: 20px; font-weight: 800; color: var(--blue-xdk); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 24px; }
-    .areas-row    { display: flex; height: 260px; }
-    .areas-cta-wrap { display: flex; justify-content: center; margin-top: 24px; }
-
-    .area-blk {
-      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 12px 6px; text-decoration: none; cursor: pointer;
-      position: relative; overflow: hidden; transition: flex .35s ease; gap: 8px;
-    }
-    .area-blk:hover { flex: 1.8; }
-    .area-blk::after {
-      content: ''; position: absolute; top: 10px; right: 8px;
-      width: 7px; height: 7px; opacity: .4; pointer-events: none;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .5);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
     }
 
-    /* Cuatro variantes de color — ciclo 1→2→3→4 */
-    .area-blk--1 { background: var(--blue-xdk); }
-    .area-blk--1 .area-name  { color: white; }
-    .area-blk--1 .area-num   { color: rgba(255,255,255,.3); }
-    .area-blk--1 .area-arrow { color: rgba(255,255,255,.7); }
-    .area-blk--1::after      { background: var(--blue-lt); }
+    .areas-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
 
-    .area-blk--2 { background: var(--blue); }
-    .area-blk--2 .area-name  { color: white; }
-    .area-blk--2 .area-num   { color: rgba(255,255,255,.3); }
-    .area-blk--2 .area-arrow { color: rgba(255,255,255,.7); }
-    .area-blk--2::after      { background: var(--blue-lt); }
+    .areas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 20px;
+    }
 
-    .area-blk--3 { background: var(--gray-bg); }
-    .area-blk--3 .area-name  { color: var(--blue-xdk); }
-    .area-blk--3 .area-num   { color: var(--blue-lt); }
-    .area-blk--3 .area-arrow { color: var(--blue); }
-    .area-blk--3::after      { background: var(--blue); }
+    .areas-cta-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .55);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: all .2s;
+    }
 
-    .area-blk--4 { background: var(--blue-lt); }
-    .area-blk--4 .area-name  { color: var(--blue-xdk); }
-    .area-blk--4 .area-num   { color: var(--blue-xdk); opacity: .5; }
-    .area-blk--4 .area-arrow { color: var(--blue); }
-    .area-blk--4::after      { background: var(--blue); }
+    .areas-cta-link:hover {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
 
-    .area-num   { font-family: 'IBM Plex Mono', monospace; font-weight: 700; letter-spacing: .1em; line-height: 1; flex-shrink: 0; font-size: clamp(7px,.9vw,11px); }
-    .area-name  { font-weight: 700; text-transform: uppercase; text-align: center; line-height: 1.5; letter-spacing: .08em; font-size: clamp(6px,.85vw,10px); word-break: keep-all; }
-    .area-arrow { font-size: clamp(8px,1vw,14px); opacity: 0; transition: opacity .25s ease; flex-shrink: 0; }
-    .area-blk:hover .area-arrow { opacity: 1; }
+    /* Grilla principal — jerarquía por tamaño */
+    .areas-main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.4fr 1fr 1fr;
+      grid-template-rows: 200px 160px;
+      gap: 3px;
+    }
+
+    .area-cell {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-decoration: none;
+    }
+
+    .area-cell img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: .22;
+      transition: opacity .3s;
+    }
+
+    .area-cell:hover img {
+      opacity: .15;
+    }
+
+    .area-cell-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      z-index: 1;
+    }
+
+    .area-cell-content {
+      position: relative;
+      z-index: 2;
+      padding: 14px 16px;
+    }
+
+    .area-cell-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      margin-bottom: 4px;
+    }
+
+    .area-cell-name {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      line-height: 1.3;
+    }
+
+    /* número grande decorativo */
+    .area-cell-bignum {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      z-index: 1;
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* Hover overlay */
+    .area-cell-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(27, 100, 200, .9);
+      opacity: 0;
+      transition: opacity .25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px;
+      z-index: 4;
+    }
+
+    .area-cell:hover .area-cell-hover {
+      opacity: 1;
+    }
+
+    .area-cell-hover-name {
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      line-height: 1.3;
+    }
+
+    .area-cell-hover-desc {
+      font-size: 10px;
+      color: rgba(255, 255, 255, .8);
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    .area-cell-hover-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      border: 1px solid rgba(255, 255, 255, .5);
+      padding: 5px 12px;
+      margin-top: 4px;
+    }
+
+    /* Grid positions */
+    .area-cell--01 {
+      grid-column: 1/2;
+      grid-row: 1/3;
+    }
+
+    /* 2 filas, más importante */
+    .area-cell--02 {
+      grid-column: 2/4;
+      grid-row: 1/2;
+    }
+
+    /* 2 columnas */
+    .area-cell--03 {
+      grid-column: 4/5;
+      grid-row: 1/2;
+    }
+
+    /* 1×1 */
+    .area-cell--04 {
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+
+    /* 1×1 */
+    .area-cell--05 {
+      grid-column: 3/4;
+      grid-row: 2/3;
+    }
+
+    .area-cell--06 {
+      grid-column: 4/5;
+      grid-row: 2/3;
+    }
+
+    /* Colores de fondo — oscuros para jerarquía principal */
+    .ac-xdk {
+      background: var(--blue-xdk);
+    }
+
+    .ac-xdk .area-cell-num {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .ac-xdk .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-xdk .area-cell-fade {
+      background: linear-gradient(to top, rgba(5, 15, 40, .75) 0%, transparent 100%);
+    }
+
+    .ac-xdk .area-cell-bignum {
+      color: rgba(255, 255, 255, .04);
+    }
+
+    .ac-blue {
+      background: var(--blue);
+    }
+
+    .ac-blue .area-cell-num {
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .ac-blue .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-blue .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .65) 0%, transparent 100%);
+    }
+
+    .ac-blue .area-cell-bignum {
+      color: rgba(255, 255, 255, .05);
+    }
+
+    .ac-navy {
+      background: #1450A8;
+    }
+
+    .ac-navy .area-cell-num {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .ac-navy .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-navy .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .6) 0%, transparent 100%);
+    }
+
+    .ac-navy .area-cell-bignum {
+      color: rgba(255, 255, 255, .04);
+    }
+
+    .ac-md {
+      background: var(--blue-md);
+    }
+
+    .ac-md .area-cell-num {
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .ac-md .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-md .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .55) 0%, transparent 100%);
+    }
+
+    .ac-md .area-cell-bignum {
+      color: rgba(255, 255, 255, .05);
+    }
+
+    .ac-pale {
+      background: #1B3E78;
+    }
+
+    .ac-pale .area-cell-num {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .ac-pale .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-pale .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .55) 0%, transparent 100%);
+    }
+
+    .ac-pale .area-cell-bignum {
+      color: rgba(255, 255, 255, .04);
+    }
+
+    .ac-lt {
+      background: #2A5090;
+    }
+
+    .ac-lt .area-cell-num {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .ac-lt .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-lt .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .5) 0%, transparent 100%);
+    }
+
+    .ac-lt .area-cell-bignum {
+      color: rgba(255, 255, 255, .04);
+    }
+
+    /* Fila inferior — 4 celdas más grandes que antes */
+    .areas-bottom-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      margin-top: 3px;
+    }
+
+    .area-cell--bottom {
+      height: 130px;
+    }
+
+    .ac-b1 {
+      background: #0D3070;
+    }
+
+    .ac-b1 .area-cell-num {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .ac-b1 .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-b1 .area-cell-fade {
+      background: linear-gradient(to top, rgba(5, 15, 40, .6) 0%, transparent 100%);
+    }
+
+    .ac-b2 {
+      background: #153880;
+    }
+
+    .ac-b2 .area-cell-num {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .ac-b2 .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-b2 .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .55) 0%, transparent 100%);
+    }
+
+    .ac-b3 {
+      background: #1C4898;
+    }
+
+    .ac-b3 .area-cell-num {
+      color: rgba(255, 255, 255, .42);
+    }
+
+    .ac-b3 .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-b3 .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .5) 0%, transparent 100%);
+    }
+
+    .ac-b4 {
+      background: #234FA8;
+    }
+
+    .ac-b4 .area-cell-num {
+      color: rgba(255, 255, 255, .42);
+    }
+
+    .ac-b4 .area-cell-name {
+      color: #fff;
+    }
+
+    .ac-b4 .area-cell-fade {
+      background: linear-gradient(to top, rgba(10, 26, 62, .48) 0%, transparent 100%);
+    }
+
+    .areas-cta-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0;
+      background: var(--blue-xdk);
+    }
+
+    /* btn-split version blanca para fondo oscuro */
+    .btn-split--white {
+      display: inline-flex;
+      align-items: center;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, .4);
+      height: 40px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+
+    .btn-split--white:hover {
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .btn-split--white .btn-split-label {
+      color: #fff;
+    }
+
+    .btn-split--white .btn-split-divider {
+      background: rgba(255, 255, 255, .35);
+    }
+
+    .btn-split--white .btn-split-arrow {
+      color: rgba(255, 255, 255, .7);
+    }
 
     /* ══════════════════════════════════════
        FOOTER
     ══════════════════════════════════════ */
-    .footer       { background: white; border-top: 2px solid var(--blue); }
-    .footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 80px; }
-    .footer-top   { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding: 52px 0 44px; position: relative; }
+    .footer {
+      background: white;
+      border-top: 2px solid var(--blue);
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding: 52px 0 44px;
+      position: relative;
+    }
 
     /* Cuadrados decorativos del footer */
-    .footer-decor-1 { position: absolute; top: 0;   right: 0;   width: 16px; height: 16px; background: var(--blue);    opacity: .7; }
-    .footer-decor-2 { position: absolute; top: 18px; right: 18px; width: 10px; height: 10px; background: var(--blue-lt); opacity: .5; }
+    .footer-decor-1 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 16px;
+      height: 16px;
+      background: var(--blue);
+      opacity: .7;
+    }
 
-    .footer-logo         { display: flex; align-items: center; margin-bottom: 14px; }
-    .footer-logo-text    { font-size: 36px; font-weight: 800; color: var(--blue-xdk); line-height: 1; letter-spacing: -1px; }
-    .footer-logo-divider { width: 1.5px; height: 40px; background: var(--blue); margin: 0 14px; }
-    .footer-logo-names   { display: flex; flex-direction: column; }
-    .footer-logo-name    { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; color: var(--blue-xdk); letter-spacing: 1.5px; line-height: 1.55; }
-    .footer-sub          { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 18px; }
-    .footer-tagline      { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-style: italic; color: #aaa; line-height: 1.7; }
+    .footer-decor-2 {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 10px;
+      height: 10px;
+      background: var(--blue-lt);
+      opacity: .5;
+    }
 
-    .footer-col-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; color: var(--blue-xdk); letter-spacing: .22em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1.5px solid var(--blue); }
-    .footer-col-link  { font-size: 13px; color: #888; font-weight: 400; text-decoration: none; padding: 8px 0; border-bottom: .5px solid #F0F0F0; display: flex; align-items: center; justify-content: space-between; transition: color .2s; }
-    .footer-col-link:hover  { color: var(--blue); }
-    .footer-col-link:last-child { border-bottom: none; }
-    .footer-col-link-arrow { font-size: 12px; color: var(--blue); opacity: 0; transition: opacity .2s; }
-    .footer-col-link:hover .footer-col-link-arrow { opacity: 1; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+    }
 
-    .footer-bottom        { border-top: .5px solid var(--gray-lt); padding: 18px 0; display: flex; justify-content: space-between; align-items: center; }
-    .footer-copy          { font-size: 11px; color: #aaa; font-weight: 300; }
-    .footer-legal-links   { display: flex; gap: 20px; }
-    .footer-legal-link    { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: #aaa; text-decoration: none; transition: color .2s; }
-    .footer-legal-link:hover { color: var(--blue); }
+    .footer-logo-text {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--blue-xdk);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .footer-logo-divider {
+      width: 1.5px;
+      height: 40px;
+      background: var(--blue);
+      margin: 0 14px;
+    }
+
+    .footer-logo-names {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-logo-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--blue-xdk);
+      letter-spacing: 1.5px;
+      line-height: 1.55;
+    }
+
+    .footer-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 18px;
+    }
+
+    .footer-tagline {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 14px;
+      font-style: italic;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .footer-col-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue-xdk);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--blue);
+    }
+
+    .footer-col-link {
+      font-size: 13px;
+      color: #888;
+      font-weight: 400;
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: .5px solid #F0F0F0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color .2s;
+    }
+
+    .footer-col-link:hover {
+      color: var(--blue);
+    }
+
+    .footer-col-link:last-child {
+      border-bottom: none;
+    }
+
+    .footer-col-link-arrow {
+      font-size: 12px;
+      color: var(--blue);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .footer-col-link:hover .footer-col-link-arrow {
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      border-top: .5px solid var(--gray-lt);
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #aaa;
+      font-weight: 300;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #aaa;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-legal-link:hover {
+      color: var(--blue);
+    }
 
     /* ══════════════════════════════════════
        FAB WHATSAPP
     ══════════════════════════════════════ */
     .fab {
-      position: fixed; bottom: 36px; right: 36px; z-index: 9999;
-      display: inline-flex; align-items: center; background: #fff;
-      border: 1.5px solid var(--wa-green); border-radius: 1px; height: 44px;
-      text-decoration: none; overflow: hidden;
-      box-shadow: 0 4px 18px rgba(37,211,102,.2); transition: box-shadow .2s, transform .2s;
+      position: fixed;
+      bottom: 36px;
+      right: 36px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border: 1.5px solid var(--wa-green);
+      border-radius: 1px;
+      height: 44px;
+      text-decoration: none;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, .2);
+      transition: box-shadow .2s, transform .2s;
     }
-    .fab:hover            { box-shadow: 0 6px 24px rgba(37,211,102,.35); transform: translateY(-2px); }
-    .fab-icon-wrap        { width: 44px; height: 100%; background: var(--wa-green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s; }
-    .fab:hover .fab-icon-wrap { background: #1DA851; }
-    .fab-icon             { width: 22px; height: 22px; display: block; }
-    .fab-label            { font-size: 10px; font-weight: 700; color: var(--blue-xdk); letter-spacing: .07em; text-transform: uppercase; padding: 0 18px; white-space: nowrap; }
-    .fab-decor-1          { position: fixed; bottom: 94px;  right: 36px; width: 10px; height: 10px; background: var(--wa-green); opacity: .4; pointer-events: none; z-index: 9998; }
-    .fab-decor-2          { position: fixed; bottom: 106px; right: 50px; width: 7px;  height: 7px;  background: #fff; border: 1px solid var(--gray-lt); opacity: .7; pointer-events: none; z-index: 9998; }
+
+    .fab:hover {
+      box-shadow: 0 6px 24px rgba(37, 211, 102, .35);
+      transform: translateY(-2px);
+    }
+
+    .fab-icon-wrap {
+      width: 44px;
+      height: 100%;
+      background: var(--wa-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .2s;
+    }
+
+    .fab:hover .fab-icon-wrap {
+      background: #1DA851;
+    }
+
+    .fab-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .fab-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue-xdk);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 0 18px;
+      white-space: nowrap;
+    }
+
+    .fab-decor-1 {
+      position: fixed;
+      bottom: 94px;
+      right: 36px;
+      width: 10px;
+      height: 10px;
+      background: var(--wa-green);
+      opacity: .4;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    .fab-decor-2 {
+      position: fixed;
+      bottom: 106px;
+      right: 50px;
+      width: 7px;
+      height: 7px;
+      background: #fff;
+      border: 1px solid var(--gray-lt);
+      opacity: .7;
+      pointer-events: none;
+      z-index: 9998;
+    }
 
     /* ══════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════ */
     @media(max-width:900px) {
-      .topbar-btn-label--long  { display: none; }
-      .topbar-btn-label--short { display: inline; }
+      .topbar-btn-label--long {
+        display: none;
+      }
+
+      .topbar-btn-label--short {
+        display: inline;
+      }
     }
 
     @media(max-width:1179px) {
-      .nav, .topbar                                          { padding-left: 32px; padding-right: 32px; }
-      .hitos-container, .team-container,
-      .areas-container, .footer-inner                        { padding-left: 32px; padding-right: 32px; }
-      .hero-logo                                             { right: 32px; }
-      .hero-slide-content                                    { left: 40px; }
-      .hero-controls                                         { padding-right: 40px; right: 160px; }
-      .areas-row                                             { height: 220px; }
+
+      .nav,
+      .topbar {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      .hitos-container,
+      .team-container,
+      .areas-container,
+      .footer-inner {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      .hero-logo {
+        left: 32px;
+      }
+
+      .hero-slide-content {
+        left: 180px;
+      }
+
+      .hero-controls {
+        padding-right: 40px;
+        right: 160px;
+      }
+
+      .areas-main-grid {
+        grid-template-rows: 170px 140px;
+      }
     }
 
     @media(max-width:767px) {
-      .nav                  { padding: 0 20px; height: 56px; }
-      .nav-links            { display: none; }
-      .topbar               { padding: 0 16px; }
-      .hero                 { height: 80vh; }
-      .hero-slide-content   { left: 20px; bottom: 60px; }
-      .hero-slide-title     { font-size: clamp(26px,6vw,36px); }
-      .hero-logo            { right: 16px; bottom: 16px; }
-      .hero-logo svg        { width: 80px; height: 80px; }
-      .hitos-grid           { grid-template-columns: 1fr; }
-      .hitos-container, .team-container,
-      .areas-container, .footer-inner { padding: 0 20px; }
-      .socio                { flex: 0 0 calc((100% - 20px) / 2); height: 240px; }
-      .team-grid            { grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(7, calc(100vw/4*0.8)); }
-      .footer-top           { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 24px; }
-      .footer-bottom        { flex-direction: column; gap: 12px; }
-      .areas-section        { padding: 36px 0 48px; }
-      .areas-row            { height: auto; flex-wrap: wrap; }
-      .area-blk             { flex: 0 0 50%; height: 80px; }
-      .area-blk:hover       { flex: 0 0 50%; }
-      .area-name            { font-size: 8px; }
-    }
+      .nav {
+        padding: 0 20px;
+        height: 56px;
+      }
 
+      .nav-links {
+        display: none;
+      }
+
+      .topbar {
+        padding: 0 16px;
+      }
+
+      .hero {
+        height: 80vh;
+      }
+
+      .hero-slide-content {
+        left: 20px;
+        bottom: 60px;
+      }
+
+      .hero-slide-title {
+        font-size: clamp(26px, 6vw, 36px);
+      }
+
+      .hero-logo {
+        left: 16px;
+        bottom: 16px;
+      }
+
+      .hero-logo svg {
+        width: 80px;
+        height: 80px;
+      }
+
+      .hitos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hitos-container,
+      .team-container,
+      .areas-container,
+      .footer-inner {
+        padding: 0 20px;
+      }
+
+      .socio {
+        flex: 0 0 calc((100% - 20px) / 2);
+        height: 240px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(7, calc(100vw/4*0.8));
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 32px 0 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .areas-section {
+        padding: 36px 0 0;
+      }
+
+      .areas-main-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .area-cell--01 {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        min-height: 140px;
+      }
+
+      .area-cell--02 {
+        grid-column: 2/3;
+        grid-row: 1/2;
+      }
+
+      .area-cell--03 {
+        grid-column: 1/2;
+        grid-row: 2/3;
+      }
+
+      .area-cell--04 {
+        grid-column: 2/3;
+        grid-row: 2/3;
+      }
+
+      .area-cell--05 {
+        grid-column: 1/2;
+        grid-row: 3/4;
+      }
+
+      .area-cell--06 {
+        grid-column: 2/3;
+        grid-row: 3/4;
+      }
+
+      .area-cell {
+        min-height: 110px;
+      }
+
+      .areas-bottom-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .area-cell--bottom {
+        height: 100px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- TOPBAR -->
@@ -467,15 +1783,17 @@
     <div class="topbar-left">
       <a href="tel:+56949409721" class="topbar-link">
         <svg class="topbar-link-icon" viewBox="0 0 16 16" fill="none">
-          <path d="M3 1h3l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L11.5 9l4 1.5V14c0 1.1-.9 2-2 2C6.4 16 0 9.6 0 3c0-1.1.9-2 2-2h1z" fill="currentColor"/>
+          <path
+            d="M3 1h3l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L11.5 9l4 1.5V14c0 1.1-.9 2-2 2C6.4 16 0 9.6 0 3c0-1.1.9-2 2-2h1z"
+            fill="currentColor" />
         </svg>
         +56 9 4940 9721
       </a>
       <div class="topbar-sep"></div>
       <a href="mailto:info@bppabogados.cl" class="topbar-link">
         <svg class="topbar-link-icon" viewBox="0 0 16 12" fill="none">
-          <rect x="1" y="1" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/>
-          <path d="M1 3l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <rect x="1" y="1" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4" />
+          <path d="M1 3l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
         </svg>
         info@bppabogados.cl
       </a>
@@ -484,15 +1802,21 @@
     <div class="topbar-right">
       <a href="https://wa.me/56949409721" class="topbar-btn topbar-btn--wa" target="_blank" rel="noopener">
         <svg class="topbar-btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="currentColor" opacity=".95"/>
-          <path d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z" fill="#0A2A5E"/>
+          <path
+            d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+            fill="currentColor" opacity=".95" />
+          <path
+            d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z"
+            fill="#0A2A5E" />
         </svg>
         <span class="topbar-btn-label--long">Agendar WhatsApp</span>
         <span class="topbar-btn-label--short">WhatsApp</span>
       </a>
-      <a href="https://www.linkedin.com/company/bpp-abogados" class="topbar-btn topbar-btn--li" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/company/bpp-abogados" class="topbar-btn topbar-btn--li" target="_blank"
+        rel="noopener">
         <svg class="topbar-btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+          <path
+            d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
         </svg>
         <span class="topbar-btn-label--long">Síguenos en LinkedIn</span>
         <span class="topbar-btn-label--short">LinkedIn</span>
@@ -501,14 +1825,18 @@
   </div>
 
   <!-- NAV -->
-  <nav class="nav nav--transparent" id="main-nav">
+  <nav class="nav" id="main-nav">
     <a href="./index.html" class="nav-logo">
-      <svg width="200" height="44" viewBox="0 0 210 48" fill="none">
-        <text x="0" y="38" font-family="Montserrat,sans-serif" font-weight="500" font-size="40" letter-spacing="-1" fill="#FFFFFF">BPP</text>
-        <rect x="89" y="0" width="2" height="50" fill="#FFFFFF" rx="1"/>
-        <text x="98" y="9"  font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#FFFFFF">BERRÍOS</text>
-        <text x="98" y="25" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#FFFFFF">PALAVECINO</text>
-        <text x="98" y="42" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5" fill="#FFFFFF">PINOCHET</text>
+      <svg width="250" height="55" viewBox="0 0 210 48" fill="none">
+        <text x="0" y="38" font-family="Montserrat,sans-serif" font-weight="500" font-size="40" letter-spacing="-1"
+          fill="#FFFFFF">BPP</text>
+        <rect x="89" y="0" width="2" height="50" fill="#FFFFFF" rx="1" />
+        <text x="98" y="9" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5"
+          fill="#FFFFFF">BERRÍOS</text>
+        <text x="98" y="25" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5"
+          fill="#FFFFFF">PALAVECINO</text>
+        <text x="98" y="42" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" letter-spacing="1.5"
+          fill="#FFFFFF">PINOCHET</text>
       </svg>
     </a>
     <div class="nav-right">
@@ -565,13 +1893,17 @@
     </div>
 
     <a href="./index.html" class="hero-logo">
-      <svg viewBox="0 0 310 310" width="106" height="106" xmlns="http://www.w3.org/2000/svg">
-        <rect width="310" height="310" fill="#1B64C8"/>
-        <text x="28" y="178" font-family="Montserrat,Arial,sans-serif" font-weight="500" font-size="62" fill="#FFFFFF" letter-spacing="-1">BPP</text>
-        <rect x="162" y="113" width="3" height="84" fill="#FFFFFF" rx="1"/>
-        <text x="174" y="139" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="1.2">BERRÍOS</text>
-        <text x="174" y="161" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="1.2">PALAVECINO</text>
-        <text x="174" y="183" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="1.2">PINOCHET</text>
+      <svg viewBox="0 0 310 310" width="127" height="127" xmlns="http://www.w3.org/2000/svg">
+        <rect width="310" height="310" fill="#1B64C8" />
+        <text x="28" y="178" font-family="Montserrat,Arial,sans-serif" font-weight="500" font-size="62" fill="#FFFFFF"
+          letter-spacing="-1">BPP</text>
+        <rect x="162" y="113" width="3" height="84" fill="#FFFFFF" rx="1" />
+        <text x="174" y="139" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF"
+          letter-spacing="1.2">BERRÍOS</text>
+        <text x="174" y="161" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF"
+          letter-spacing="1.2">PALAVECINO</text>
+        <text x="174" y="183" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF"
+          letter-spacing="1.2">PINOCHET</text>
       </svg>
     </a>
 
@@ -605,36 +1937,44 @@
           <div class="hito-card-decor"></div>
           <div class="hito-card-number">1.250+</div>
           <div class="hito-card-label">Clientes vigentes</div>
-          <p class="hito-card-desc">Más de 1.250 clientes activos representados a lo largo de Chile en materias laborales, civiles y corporativas.</p>
+          <p class="hito-card-desc">Más de 1.250 clientes activos representados a lo largo de Chile en materias
+            laborales, civiles y corporativas.</p>
         </div>
 
         <div class="hito-card">
           <div class="hito-card-decor"></div>
           <div class="hito-card-number">+38</div>
           <div class="hito-card-label">Años de trayectoria</div>
-          <p class="hito-card-desc">Fundados en 1988, somos uno de los estudios jurídicos laborales de mayor tradición y continuidad en Chile.</p>
+          <p class="hito-card-desc">Fundados en 1988, somos uno de los estudios jurídicos laborales de mayor tradición y
+            continuidad en Chile.</p>
         </div>
 
         <div class="hito-leido">
-          <svg class="hito-leido-wave" viewBox="0 0 400 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,100 C80,50 160,150 240,100 S360,50 400,100" stroke="#4ECDC4" stroke-width="1.5" fill="none"/>
-            <path d="M0,130 C90,80 170,175 260,125 S375,75 400,130" stroke="#4ECDC4" stroke-width="1" fill="none" opacity=".5"/>
-            <path d="M0,70 C70,25 150,120 220,75 S345,25 400,70" stroke="#4ECDC4" stroke-width=".8" fill="none" opacity=".35"/>
+          <svg class="hito-leido-wave" viewBox="0 0 400 200" preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,100 C80,50 160,150 240,100 S360,50 400,100" stroke="#4ECDC4" stroke-width="1.5" fill="none" />
+            <path d="M0,130 C90,80 170,175 260,125 S375,75 400,130" stroke="#4ECDC4" stroke-width="1" fill="none"
+              opacity=".5" />
+            <path d="M0,70 C70,25 150,120 220,75 S345,25 400,70" stroke="#4ECDC4" stroke-width=".8" fill="none"
+              opacity=".35" />
           </svg>
           <span class="hito-leido-eyebrow">Lo más leído</span>
           <div class="hito-leido-title">Noticias destacadas</div>
           <div class="hito-leido-list">
             <a href="./BPP_Noticias.html" class="hito-leido-item">
               <span class="hito-leido-item-num">01</span>
-              <span class="hito-leido-item-text">BPP lidera el primer macro evento judicial laboral tras la reforma procesal — más de 100 sentencias favorables</span>
+              <span class="hito-leido-item-text">BPP lidera el primer macro evento judicial laboral tras la reforma
+                procesal — más de 100 sentencias favorables</span>
             </a>
             <a href="./BPP_Noticias.html" class="hito-leido-item">
               <span class="hito-leido-item-num">02</span>
-              <span class="hito-leido-item-text">Acción judicial contra Multitiendas Corona: declaración de unidad económica del holding</span>
+              <span class="hito-leido-item-text">Acción judicial contra Multitiendas Corona: declaración de unidad
+                económica del holding</span>
             </a>
             <a href="./BPP_Noticias.html" class="hito-leido-item">
               <span class="hito-leido-item-num">03</span>
-              <span class="hito-leido-item-text">Claudio Palavecino en la Universidad de Alcalá: Curso de Altos Estudios en España</span>
+              <span class="hito-leido-item-text">Claudio Palavecino en la Universidad de Alcalá: Curso de Altos Estudios
+                en España</span>
             </a>
           </div>
         </div>
@@ -659,7 +1999,12 @@
               <div class="socio-role">Socio</div>
               <div class="socio-spec">Estrategia Laboral · Litigios</div>
               <div class="socio-linkedin">
-                <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="white"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+                  <rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4" />
+                  <circle cx="5" cy="5" r="1" fill="white" />
+                  <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
                 Ver LinkedIn
               </div>
             </div>
@@ -672,7 +2017,12 @@
               <div class="socio-role">Socio Fundador</div>
               <div class="socio-spec">Litigios · Compliance</div>
               <div class="socio-linkedin">
-                <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="white"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+                  <rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4" />
+                  <circle cx="5" cy="5" r="1" fill="white" />
+                  <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
                 Ver LinkedIn
               </div>
             </div>
@@ -685,7 +2035,12 @@
               <div class="socio-role">Socio</div>
               <div class="socio-spec">Negociación Colectiva · Due Diligence</div>
               <div class="socio-linkedin">
-                <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4"/><circle cx="5" cy="5" r="1" fill="white"/><path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+                  <rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4" />
+                  <circle cx="5" cy="5" r="1" fill="white" />
+                  <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
                 Ver LinkedIn
               </div>
             </div>
@@ -702,34 +2057,174 @@
     </div>
 
     <div class="team-grid" id="team-grid">
-      <div class="team-cell"><img src="asociado1.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Patricio González</div><div class="team-cell-area">Der. Laboral</div></div></div>
-      <div class="team-cell"><img src="asociado2.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Manuel Gutiérrez</div><div class="team-cell-area">Litigios</div></div></div>
-      <div class="team-cell"><div class="team-cell-overlay"><div class="team-cell-name">Franco Benavides</div><div class="team-cell-area">Neg. Colectiva</div></div></div>
-      <div class="team-cell"><img src="asociado4.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Polett Rodríguez</div><div class="team-cell-area">Compliance</div></div></div>
-      <div class="team-cell"><div class="team-cell-overlay"><div class="team-cell-name">Dante Gariboldi</div><div class="team-cell-area">Due Diligence</div></div></div>
-      <div class="team-cell"><img src="asociado6.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">José J. Ossa</div><div class="team-cell-area">Der. Laboral</div></div></div>
-      <div class="team-cell"><img src="asociado7.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Gonzalo Doren</div><div class="team-cell-area">Litigios</div></div></div>
-      <div class="team-cell"><div class="team-cell-overlay"><div class="team-cell-name">Sofía Hernández</div><div class="team-cell-area">Compliance</div></div></div>
-      <div class="team-cell"><img src="asociado9.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Constanza Godoy</div><div class="team-cell-area">Der. Laboral</div></div></div>
-      <div class="team-cell"><img src="asociado10.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Felipe Kuthe</div><div class="team-cell-area">Litigios</div></div></div>
-      <div class="team-cell"><img src="asociado11.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Valentina Espinoza</div><div class="team-cell-area">Neg. Colectiva</div></div></div>
-      <div class="team-cell"><img src="asociado1.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Lucas Ortiz</div><div class="team-cell-area">Due Diligence</div></div></div>
-      <div class="team-cell"><div class="team-cell-overlay"><div class="team-cell-name">Macarena Valenzuela</div><div class="team-cell-area">Der. Laboral</div></div></div>
-      <div class="team-cell"><img src="asociado3.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Nicolás Yáñez</div><div class="team-cell-area">Litigios</div></div></div>
-      <div class="team-cell"><img src="asociado4.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Rocío Cartagena</div><div class="team-cell-area">Seg. Social</div></div></div>
-      <div class="team-cell"><img src="asociado5.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Simón Gutiérrez</div><div class="team-cell-area">Estrategia</div></div></div>
-      <div class="team-cell"><img src="asociado6.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Andrea Morales</div><div class="team-cell-area">Der. Laboral</div></div></div>
-      <div class="team-cell"><div class="team-cell-overlay"><div class="team-cell-name">Rodrigo Pizarro</div><div class="team-cell-area">Litigios</div></div></div>
-      <div class="team-cell"><img src="asociado8.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Camila Reyes</div><div class="team-cell-area">Compliance</div></div></div>
-      <div class="team-cell"><img src="asociado9.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Felipe Araya</div><div class="team-cell-area">Due Diligence</div></div></div>
-      <div class="team-cell"><img src="asociado10.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Isidora Soto</div><div class="team-cell-area">Der. Laboral</div></div></div>
-      <div class="team-cell"><img src="asociado11.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Martín Fuentes</div><div class="team-cell-area">Litigios</div></div></div>
-      <div class="team-cell"><img src="asociado1.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Javiera Bravo</div><div class="team-cell-area">Neg. Colectiva</div></div></div>
-      <div class="team-cell"><div class="team-cell-overlay"><div class="team-cell-name">Diego Castillo</div><div class="team-cell-area">Estrategia</div></div></div>
-      <div class="team-cell"><img src="asociado3.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Fernanda Lagos</div><div class="team-cell-area">Seg. Social</div></div></div>
-      <div class="team-cell"><img src="asociado4.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Sebastián Moya</div><div class="team-cell-area">Compliance</div></div></div>
-      <div class="team-cell"><div class="team-cell-overlay"><div class="team-cell-name">Catalina Vera</div><div class="team-cell-area">Der. Laboral</div></div></div>
-      <div class="team-cell"><img src="asociado6.jpeg" alt=""><div class="team-cell-overlay"><div class="team-cell-name">Pablo Herrera</div><div class="team-cell-area">Litigios</div></div></div>
+      <div class="team-cell"><img src="asociado1.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Patricio González</div>
+          <div class="team-cell-area">Der. Laboral</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado2.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Manuel Gutiérrez</div>
+          <div class="team-cell-area">Litigios</div>
+        </div>
+      </div>
+      <div class="team-cell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Franco Benavides</div>
+          <div class="team-cell-area">Neg. Colectiva</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado4.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Polett Rodríguez</div>
+          <div class="team-cell-area">Compliance</div>
+        </div>
+      </div>
+      <div class="team-cell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Dante Gariboldi</div>
+          <div class="team-cell-area">Due Diligence</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado6.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">José J. Ossa</div>
+          <div class="team-cell-area">Der. Laboral</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado7.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Gonzalo Doren</div>
+          <div class="team-cell-area">Litigios</div>
+        </div>
+      </div>
+      <div class="team-cell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Sofía Hernández</div>
+          <div class="team-cell-area">Compliance</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado9.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Constanza Godoy</div>
+          <div class="team-cell-area">Der. Laboral</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado10.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Felipe Kuthe</div>
+          <div class="team-cell-area">Litigios</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado11.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Valentina Espinoza</div>
+          <div class="team-cell-area">Neg. Colectiva</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado1.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Lucas Ortiz</div>
+          <div class="team-cell-area">Due Diligence</div>
+        </div>
+      </div>
+      <div class="team-cell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Macarena Valenzuela</div>
+          <div class="team-cell-area">Der. Laboral</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado3.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Nicolás Yáñez</div>
+          <div class="team-cell-area">Litigios</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado4.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Rocío Cartagena</div>
+          <div class="team-cell-area">Seg. Social</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado5.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Simón Gutiérrez</div>
+          <div class="team-cell-area">Estrategia</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado6.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Andrea Morales</div>
+          <div class="team-cell-area">Der. Laboral</div>
+        </div>
+      </div>
+      <div class="team-cell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Rodrigo Pizarro</div>
+          <div class="team-cell-area">Litigios</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado8.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Camila Reyes</div>
+          <div class="team-cell-area">Compliance</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado9.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Felipe Araya</div>
+          <div class="team-cell-area">Due Diligence</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado10.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Isidora Soto</div>
+          <div class="team-cell-area">Der. Laboral</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado11.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Martín Fuentes</div>
+          <div class="team-cell-area">Litigios</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado1.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Javiera Bravo</div>
+          <div class="team-cell-area">Neg. Colectiva</div>
+        </div>
+      </div>
+      <div class="team-cell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Diego Castillo</div>
+          <div class="team-cell-area">Estrategia</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado3.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Fernanda Lagos</div>
+          <div class="team-cell-area">Seg. Social</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado4.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Sebastián Moya</div>
+          <div class="team-cell-area">Compliance</div>
+        </div>
+      </div>
+      <div class="team-cell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Catalina Vera</div>
+          <div class="team-cell-area">Der. Laboral</div>
+        </div>
+      </div>
+      <div class="team-cell"><img src="asociado6.jpeg" alt="">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Pablo Herrera</div>
+          <div class="team-cell-area">Litigios</div>
+        </div>
+      </div>
     </div>
 
     <div class="team-cta-wrap">
@@ -744,24 +2239,177 @@
   <!-- ÁREAS DE PRÁCTICA -->
   <section class="areas-section">
     <div class="areas-container">
-      <div>
-        <span class="areas-eyebrow">Especialización</span>
-        <h2 class="areas-title">Áreas de Práctica</h2>
+      <div class="areas-header">
+        <div>
+          <span class="areas-eyebrow">Especialización</span>
+          <h2 class="areas-title">Áreas de Práctica</h2>
+        </div>
+        <a href="./BPP_Areas.html" class="areas-cta-link">Ver todas las áreas →</a>
       </div>
-      <div class="areas-row">
-        <a href="./BPP_Areas.html" class="area-blk area-blk--1"><span class="area-name">Derecho<br>Laboral</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--2"><span class="area-name">Litigios<br>Laborales<br>y Civiles</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--3"><span class="area-name">Asesoría<br>Laboral<br>Corporativa</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--4"><span class="area-name">Cumplimiento<br>Normativo<br>Laboral y Penal</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--1"><span class="area-name">Protección<br>de Datos</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--2"><span class="area-name">Derecho<br>Administrativo<br>y Sancionador</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--3"><span class="area-name">Derecho<br>Penal<br>Económico</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--4"><span class="area-name">Patrimonios<br>Familiares y<br>Plan. Sucesoria</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--1"><span class="area-name">Estrategia<br>Comuni&shy;cacional</span><span class="area-arrow">↓</span></a>
-        <a href="./BPP_Areas.html" class="area-blk area-blk--2"><span class="area-name">Representación<br>Organismos<br>Públicos · Lobby</span><span class="area-arrow">↓</span></a>
+
+      <!-- Grilla principal: 01 ocupa 2 filas, 02 ocupa 2 columnas -->
+      <div class="areas-main-grid">
+
+        <!-- 01 — Derecho Laboral: más importante, doble alto -->
+        <a href="./BPP_Areas.html" class="area-cell ac-xdk area-cell--01">
+          <img src="area-img-01.jpg" alt="Derecho Laboral">
+          <div class="area-cell-bignum">01</div>
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Derecho Laboral</div>
+            <div class="area-cell-hover-desc">Asesoría integral en relaciones laborales individuales y colectivas,
+              contratos y fiscalizaciones.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">01</div>
+            <div class="area-cell-name">Derecho<br>Laboral</div>
+          </div>
+        </a>
+
+        <!-- 02 — Litigios: segunda en importancia, doble ancho -->
+        <a href="./BPP_Areas.html" class="area-cell ac-blue area-cell--02">
+          <img src="area-img-02.jpg" alt="Litigios Laborales y Civiles">
+          <div class="area-cell-bignum" style="font-size:40px;">02</div>
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Litigios Laborales y Civiles</div>
+            <div class="area-cell-hover-desc">Representación en Juzgados del Trabajo, Cortes de Apelaciones y Corte
+              Suprema.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">02</div>
+            <div class="area-cell-name">Litigios Laborales<br>y Civiles</div>
+          </div>
+        </a>
+
+        <!-- 03 — Asesoría Corporativa -->
+        <a href="./BPP_Areas.html" class="area-cell ac-navy area-cell--03">
+          <img src="area-img-03.jpg" alt="Asesoría Laboral Corporativa">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Asesoría Laboral Corporativa</div>
+            <div class="area-cell-hover-desc">Gestión laboral corporativa preventiva y estratégica.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">03</div>
+            <div class="area-cell-name">Asesoría<br>Laboral Corp.</div>
+          </div>
+        </a>
+
+        <!-- 04 — Cumplimiento Normativo -->
+        <a href="./BPP_Areas.html" class="area-cell ac-md area-cell--04">
+          <img src="area-img-04.jpg" alt="Cumplimiento Normativo">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Cumplimiento Normativo Laboral y Penal</div>
+            <div class="area-cell-hover-desc">Modelos de compliance, Ley Karin y prevención de riesgos legales.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">04</div>
+            <div class="area-cell-name">Cumplimiento<br>Normativo</div>
+          </div>
+        </a>
+
+        <!-- 05 — Protección de Datos -->
+        <a href="./BPP_Areas.html" class="area-cell ac-pale area-cell--05">
+          <img src="area-img-05.jpg" alt="Protección de Datos">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Protección de Datos</div>
+            <div class="area-cell-hover-desc">Adecuación a la Ley 21.719 de Protección de Datos Personales.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">05</div>
+            <div class="area-cell-name">Protección<br>de Datos</div>
+          </div>
+        </a>
+
+        <!-- 06 — Derecho Administrativo -->
+        <a href="./BPP_Areas.html" class="area-cell ac-lt area-cell--06">
+          <img src="area-img-06.jpg" alt="Derecho Administrativo y Sancionador">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Derecho Administrativo y Sancionador</div>
+            <div class="area-cell-hover-desc">Procedimientos sancionatorios ante organismos reguladores.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">06</div>
+            <div class="area-cell-name">Derecho<br>Administ.</div>
+          </div>
+        </a>
+
       </div>
+
+      <!-- Fila inferior: áreas 07-10, más altas que antes -->
+      <div class="areas-bottom-grid">
+
+        <a href="./BPP_Areas.html" class="area-cell ac-b1 area-cell--bottom">
+          <img src="area-img-07.jpg" alt="Derecho Penal Económico">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Derecho Penal Económico</div>
+            <div class="area-cell-hover-desc">Defensa en delitos económicos y responsabilidad penal empresarial.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">07</div>
+            <div class="area-cell-name">Derecho Penal Económico</div>
+          </div>
+        </a>
+
+        <a href="./BPP_Areas.html" class="area-cell ac-b2 area-cell--bottom">
+          <img src="area-img-08.jpg" alt="Patrimonios Familiares">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Patrimonios Familiares y Plan. Sucesoria</div>
+            <div class="area-cell-hover-desc">Planificación patrimonial, hereditaria y estructuras familiares.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">08</div>
+            <div class="area-cell-name">Patrimonios Familiares y Plan. Sucesoria</div>
+          </div>
+        </a>
+
+        <a href="./BPP_Areas.html" class="area-cell ac-b3 area-cell--bottom">
+          <img src="area-img-09.jpg" alt="Estrategia Comunicacional">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Estrategia Comunicacional</div>
+            <div class="area-cell-hover-desc">Asesoría en comunicación jurídica y gestión de crisis reputacional.</div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">09</div>
+            <div class="area-cell-name">Estrategia Comunicacional</div>
+          </div>
+        </a>
+
+        <a href="./BPP_Areas.html" class="area-cell ac-b4 area-cell--bottom">
+          <img src="area-img-10.jpg" alt="Representación Organismos Públicos">
+          <div class="area-cell-fade"></div>
+          <div class="area-cell-hover">
+            <div class="area-cell-hover-name">Representación · Ley de Lobby</div>
+            <div class="area-cell-hover-desc">Gestión ante organismos reguladores y representación en Ley de Lobby.
+            </div>
+            <div class="area-cell-hover-btn">Ver área →</div>
+          </div>
+          <div class="area-cell-content">
+            <div class="area-cell-num">10</div>
+            <div class="area-cell-name">Representación Org. Públicos · Lobby</div>
+          </div>
+        </a>
+
+      </div>
+
       <div class="areas-cta-wrap">
-        <a href="./BPP_Areas.html" class="btn-split">
+        <a href="./BPP_Areas.html" class="btn-split btn-split--white">
           <span class="btn-split-label">Ver todas las áreas</span>
           <span class="btn-split-divider"></span>
           <span class="btn-split-arrow">→</span>
@@ -769,6 +2417,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -792,24 +2441,32 @@
         <div>
           <div class="footer-col-title">El Estudio</div>
           <a href="#" class="footer-col-link">Quiénes somos <span class="footer-col-link-arrow">→</span></a>
-          <a href="./BPP_Equipo_v2.html" class="footer-col-link">Nuestro equipo <span class="footer-col-link-arrow">→</span></a>
+          <a href="./BPP_Equipo_v2.html" class="footer-col-link">Nuestro equipo <span
+              class="footer-col-link-arrow">→</span></a>
           <a href="#" class="footer-col-link">Historia <span class="footer-col-link-arrow">→</span></a>
-          <a href="./BPP_Noticias.html" class="footer-col-link">Publicaciones <span class="footer-col-link-arrow">→</span></a>
+          <a href="./BPP_Noticias.html" class="footer-col-link">Publicaciones <span
+              class="footer-col-link-arrow">→</span></a>
         </div>
         <div>
           <div class="footer-col-title">Especialización</div>
-          <a href="./BPP_Areas.html" class="footer-col-link">Derecho Laboral <span class="footer-col-link-arrow">→</span></a>
+          <a href="./BPP_Areas.html" class="footer-col-link">Derecho Laboral <span
+              class="footer-col-link-arrow">→</span></a>
           <a href="./BPP_Areas.html" class="footer-col-link">Litigios <span class="footer-col-link-arrow">→</span></a>
-          <a href="./BPP_Areas.html" class="footer-col-link">Asesoría Corporativa <span class="footer-col-link-arrow">→</span></a>
-          <a href="./BPP_Areas.html" class="footer-col-link">Cumplimiento Normativo <span class="footer-col-link-arrow">→</span></a>
-          <a href="./BPP_Areas.html" class="footer-col-link" style="color:var(--blue);font-weight:500">Ver todas → <span class="footer-col-link-arrow">→</span></a>
+          <a href="./BPP_Areas.html" class="footer-col-link">Asesoría Corporativa <span
+              class="footer-col-link-arrow">→</span></a>
+          <a href="./BPP_Areas.html" class="footer-col-link">Cumplimiento Normativo <span
+              class="footer-col-link-arrow">→</span></a>
+          <a href="./BPP_Areas.html" class="footer-col-link" style="color:var(--blue);font-weight:500">Ver todas → <span
+              class="footer-col-link-arrow">→</span></a>
         </div>
         <div>
           <div class="footer-col-title">Contacto</div>
           <a href="#" class="footer-col-link">Huérfanos 835, Of. 801 <span class="footer-col-link-arrow">→</span></a>
           <a href="#" class="footer-col-link">Santiago, Chile <span class="footer-col-link-arrow">→</span></a>
-          <a href="tel:+56949409721" class="footer-col-link">+56 9 4940 9721 <span class="footer-col-link-arrow">→</span></a>
-          <a href="mailto:info@bppabogados.cl" class="footer-col-link">info@bppabogados.cl <span class="footer-col-link-arrow">→</span></a>
+          <a href="tel:+56949409721" class="footer-col-link">+56 9 4940 9721 <span
+              class="footer-col-link-arrow">→</span></a>
+          <a href="mailto:info@bppabogados.cl" class="footer-col-link">info@bppabogados.cl <span
+              class="footer-col-link-arrow">→</span></a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -827,8 +2484,12 @@
   <a href="https://wa.me/56949409721" class="fab" target="_blank" rel="noopener">
     <div class="fab-icon-wrap">
       <svg class="fab-icon" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="rgba(255,255,255,0.15)"/>
-        <path d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z" fill="white"/>
+        <path
+          d="M12 2C6.477 2 2 6.477 2 12c0 1.89.52 3.66 1.427 5.18L2 22l4.957-1.396A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+          fill="rgba(255,255,255,0.15)" />
+        <path
+          d="M8.5 8.5c.2-.5.7-.9 1.2-.9.4 0 .7.1.9.5l1.1 2.4c.1.3 0 .7-.2.9l-.5.6c.5 1 1.4 1.9 2.4 2.4l.6-.5c.2-.2.6-.3.9-.2l2.4 1.1c.4.2.5.5.5.9 0 .5-.4 1-.9 1.2-2.5 1-6.5-2-7.5-4.5-.5-1.3-.5-2.9.1-3.9z"
+          fill="white" />
       </svg>
     </div>
     <span class="fab-label">Agendar consulta</span>
@@ -840,8 +2501,8 @@
     /* ── CARRUSEL HERO ── */
     let currentSlide = 0;
     const heroSlides = document.querySelectorAll('.hero-slide');
-    const heroDots   = document.querySelectorAll('.hero-dot');
-    let   heroTimer  = setInterval(nextSlide, 6000);
+    const heroDots = document.querySelectorAll('.hero-dot');
+    let heroTimer = setInterval(nextSlide, 6000);
 
     function goSlide(n) {
       heroSlides[currentSlide].classList.remove('hero-slide--active');
@@ -857,24 +2518,19 @@
     function nextSlide() { goSlide(currentSlide + 1); }
     function prevSlide() { goSlide(currentSlide - 1); }
 
-    /* ── NAV SCROLL ── */
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('nav--solid',       window.scrollY > 60);
-      nav.classList.toggle('nav--transparent', window.scrollY <= 60);
-    }, { passive: true });
+    /* ── NAV SCROLL — eliminado: nav siempre sólido ── */
 
     /* ── CARRUSEL SOCIOS — loop infinito ── */
     (function () {
-      const track     = document.getElementById('socios-track');
+      const track = document.getElementById('socios-track');
       const socioDots = document.querySelectorAll('.socios-dot');
       if (!track) return;
 
       const originals = Array.from(track.querySelectorAll('.socio'));
-      const total     = originals.length;
-      const GAP       = 20;
-      let   idx       = 0;
-      let   timer;
+      const total = originals.length;
+      const GAP = 20;
+      let idx = 0;
+      let timer;
 
       originals.forEach(s => track.appendChild(s.cloneNode(true)));
 
@@ -882,7 +2538,7 @@
 
       function moveTo(pos, animate) {
         track.style.transition = animate ? 'transform .5s cubic-bezier(.4,0,.2,1)' : 'none';
-        track.style.transform  = `translateX(-${pos * slideW()}px)`;
+        track.style.transform = `translateX(-${pos * slideW()}px)`;
       }
 
       function next() {
@@ -921,7 +2577,7 @@
 
     /* ── GRILLA ASOCIADOS — colores aleatorios ── */
     (function () {
-      const palette = ['#1B64C8','#3D7FD4','#85B7EB','#999999','#0A2A5E','#FFFFFF'];
+      const palette = ['#1B64C8', '#3D7FD4', '#85B7EB', '#999999', '#0A2A5E', '#FFFFFF'];
       document.querySelectorAll('#team-grid .team-cell').forEach(cell => {
         cell.style.backgroundColor = palette[Math.floor(Math.random() * palette.length)];
         const img = cell.querySelector('img');
@@ -930,4 +2586,5 @@
     })();
   </script>
 </body>
+
 </html>
