@@ -182,14 +182,15 @@
     }
 
     .nav-links li a {
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: .06em;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .18em;
       text-transform: uppercase;
       text-decoration: none;
       transition: color .2s;
       white-space: nowrap;
-      color: rgba(255, 255, 255, .75);
+      color: rgba(255, 255, 255, .72);
     }
 
     .nav-links li a:hover,
@@ -237,13 +238,11 @@
     .sh-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(27,100,200,.95) 0%,
-        rgba(20,80,168,.82)  20%,
-        rgba(10,50,130,.72)  50%,
-        rgba(10,40,100,.62)  100%
-      );
+      background: linear-gradient(180deg,
+          rgba(27, 100, 200, .95) 0%,
+          rgba(20, 80, 168, .82) 20%,
+          rgba(10, 50, 130, .72) 50%,
+          rgba(10, 40, 100, .62) 100%);
     }
 
     .sh-wave {
@@ -446,13 +445,15 @@
       transform: translateY(24px);
       transition: opacity .5s ease, transform .5s ease, box-shadow .25s ease;
     }
+
     .person-card.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     .person-card.is-visible:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(27,100,200,.14);
+      box-shadow: 0 12px 32px rgba(27, 100, 200, .14);
     }
 
     /* Zona foto */
@@ -460,7 +461,8 @@
       position: relative;
       overflow: hidden;
       width: 100%;
-      height: 240px;   /* altura fija — uniforme en todas las cards */
+      height: 240px;
+      /* altura fija — uniforme en todas las cards */
       flex-shrink: 0;
     }
 
@@ -604,20 +606,25 @@
       letter-spacing: .06em;
       text-transform: uppercase;
       text-decoration: none;
-      border: 1px solid rgba(27,100,200,.25);
+      border: 1px solid rgba(27, 100, 200, .25);
       background: #fff;
       color: var(--blue-xdk);
       transition: border-color .2s, background .2s, color .2s;
       align-self: flex-start;
     }
+
     .card-btn-li:hover {
       border-color: var(--blue);
       background: var(--blue);
       color: #fff;
     }
+
     .card-btn-li:hover svg rect,
     .card-btn-li:hover svg circle,
-    .card-btn-li:hover svg path { stroke: #fff !important; fill: #fff !important; }
+    .card-btn-li:hover svg path {
+      stroke: #fff !important;
+      fill: #fff !important;
+    }
 
     /* Email — texto visible + ícono copiar */
     .card-email-row {
@@ -625,6 +632,7 @@
       align-items: center;
       gap: 5px;
     }
+
     .card-email {
       flex: 1;
       font-family: 'IBM Plex Mono', monospace;
@@ -640,27 +648,57 @@
       border-bottom: 1px solid var(--gray-lt);
       transition: border-color .2s, color .2s;
     }
-    .card-email:hover { border-color: var(--blue); color: var(--blue-dk); }
+
+    .card-email:hover {
+      border-color: var(--blue);
+      color: var(--blue-dk);
+    }
 
     /* Ícono copiar */
     .card-copy-btn {
-      width: 26px; height: 26px;
-      display: flex; align-items: center; justify-content: center;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid var(--gray-lt);
-      background: #fff; cursor: pointer; flex-shrink: 0;
-      position: relative; transition: border-color .2s, background .2s;
+      background: #fff;
+      cursor: pointer;
+      flex-shrink: 0;
+      position: relative;
+      transition: border-color .2s, background .2s;
     }
-    .card-copy-btn:hover { border-color: var(--blue); background: var(--blue); }
+
+    .card-copy-btn:hover {
+      border-color: var(--blue);
+      background: var(--blue);
+    }
+
     .card-copy-btn:hover svg rect,
-    .card-copy-btn:hover svg path { stroke: #fff !important; }
-    .card-copy-btn .copy-check {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--blue); color: #fff;
-      font-size: 12px; opacity: 0; transition: opacity .2s;
+    .card-copy-btn:hover svg path {
+      stroke: #fff !important;
     }
-    .card-copy-btn.copied { border-color: var(--blue); }
-    .card-copy-btn.copied .copy-check { opacity: 1; }
+
+    .card-copy-btn .copy-check {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue);
+      color: #fff;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .card-copy-btn.copied {
+      border-color: var(--blue);
+    }
+
+    .card-copy-btn.copied .copy-check {
+      opacity: 1;
+    }
 
     .card-btn-li:hover {
       background: var(--blue);
@@ -689,24 +727,61 @@
     }
 
     @media(max-width:900px) {
-      .people-grid { grid-template-columns: repeat(4, 1fr); }
-      .card-photo-wrap { height: 200px; }
+      .people-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .card-photo-wrap {
+        height: 200px;
+      }
     }
 
     @media(max-width:767px) {
-      body { padding-top: 96px; }
-      .section-hero { height: auto; min-height: 260px; }
-      .sh-inner { flex-direction: column; gap: 16px; padding: 20px 20px 28px; }
-      .sh-left { flex: none; }
-      .sh-title { font-size: clamp(26px, 6vw, 38px); }
-      .equipo-inner { padding: 0 20px; }
-      .people-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-      .card-photo-wrap { height: 160px; }
+      body {
+        padding-top: 96px;
+      }
+
+      .section-hero {
+        height: auto;
+        min-height: 260px;
+      }
+
+      .sh-inner {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 20px 28px;
+      }
+
+      .sh-left {
+        flex: none;
+      }
+
+      .sh-title {
+        font-size: clamp(26px, 6vw, 38px);
+      }
+
+      .equipo-inner {
+        padding: 0 20px;
+      }
+
+      .people-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .card-photo-wrap {
+        height: 160px;
+      }
     }
 
     @media(max-width:499px) {
-      .people-grid { grid-template-columns: repeat(2, 1fr); }
-      .card-photo-wrap { height: 180px; }
+      .people-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-photo-wrap {
+        height: 180px;
+      }
     }
   </style>
 </head>
@@ -881,7 +956,13 @@
                     stroke-linecap="round" />
                 </svg> LinkedIn
               </a>
-              <div class="card-email-row"><a href="mailto:fpinochet@bppabogados.cl" class="card-email">fpinochet@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:fpinochet@bppabogados.cl"
+                  class="card-email">fpinochet@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -899,8 +980,8 @@
             <div class="card-name">Matías Berrios Fuchslocher</div>
             <div class="card-role">Socio Fundador</div>
             <div class="card-btns">
-              <a href="https://www.linkedin.com/in/matias-berrios-fuchslocher/" class="card-btn card-btn-li" target="_blank"
-                rel="noopener">
+              <a href="https://www.linkedin.com/in/matias-berrios-fuchslocher/" class="card-btn card-btn-li"
+                target="_blank" rel="noopener">
                 <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
                   <rect x="1" y="1" width="14" height="14" rx="2" stroke="#1B64C8" stroke-width="1.3" />
                   <circle cx="5" cy="5" r="1.2" fill="#1B64C8" />
@@ -908,7 +989,13 @@
                     stroke-linecap="round" />
                 </svg> LinkedIn
               </a>
-              <div class="card-email-row"><a href="mailto:mberrios@bppabogados.cl" class="card-email">mberrios@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:mberrios@bppabogados.cl"
+                  class="card-email">mberrios@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -926,8 +1013,8 @@
             <div class="card-name">Claudio Palavecino Cáceres</div>
             <div class="card-role">Socio Fundador</div>
             <div class="card-btns">
-              <a href="https://www.linkedin.com/in/claudio-palavecino-caceres/" class="card-btn card-btn-li" target="_blank"
-                rel="noopener">
+              <a href="https://www.linkedin.com/in/claudio-palavecino-caceres/" class="card-btn card-btn-li"
+                target="_blank" rel="noopener">
                 <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
                   <rect x="1" y="1" width="14" height="14" rx="2" stroke="#1B64C8" stroke-width="1.3" />
                   <circle cx="5" cy="5" r="1.2" fill="#1B64C8" />
@@ -935,7 +1022,13 @@
                     stroke-linecap="round" />
                 </svg> LinkedIn
               </a>
-              <div class="card-email-row"><a href="mailto:cpalavecino@bppabogados.cl" class="card-email">cpalavecino@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:cpalavecino@bppabogados.cl"
+                  class="card-email">cpalavecino@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -943,7 +1036,8 @@
         <div class="person-card" data-cat="asociados">
           <a href="BPP_Asociado_Detalle.html" class="card-link">
             <div class="card-photo-wrap">
-              <img src="asociado2.jpeg" alt="Manuel Gutiérrez R." class="card-photo" onerror="this.style.display='none'">
+              <img src="asociado2.jpeg" alt="Manuel Gutiérrez R." class="card-photo"
+                onerror="this.style.display='none'">
               <div class="card-ph ph-e"><span>foto</span></div>
               <div class="card-photo-overlay"></div>
             </div>
@@ -959,7 +1053,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:mgutierrez@bppabogados.cl" class="card-email">mgutierrez@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'mgutierrez@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:mgutierrez@bppabogados.cl"
+                  class="card-email">mgutierrez@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'mgutierrez@bppabogados.cl')" title="Copiar correo"><svg width="11"
+                    height="11" viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -967,7 +1067,8 @@
         <div class="person-card" data-cat="asociados">
           <a href="BPP_Asociado_Detalle.html" class="card-link">
             <div class="card-photo-wrap">
-              <img src="asociado3.jpeg" alt="Franco Benavides P." class="card-photo" onerror="this.style.display='none'">
+              <img src="asociado3.jpeg" alt="Franco Benavides P." class="card-photo"
+                onerror="this.style.display='none'">
               <div class="card-ph ph-f"><span>foto</span></div>
               <div class="card-photo-overlay"></div>
             </div>
@@ -983,7 +1084,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:fbenavides@bppabogados.cl" class="card-email">fbenavides@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'fbenavides@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:fbenavides@bppabogados.cl"
+                  class="card-email">fbenavides@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'fbenavides@bppabogados.cl')" title="Copiar correo"><svg width="11"
+                    height="11" viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -991,7 +1098,8 @@
         <div class="person-card" data-cat="asociados">
           <a href="BPP_Asociado_Detalle.html" class="card-link">
             <div class="card-photo-wrap">
-              <img src="asociado4.jpeg" alt="Polett Rodríguez M." class="card-photo" onerror="this.style.display='none'">
+              <img src="asociado4.jpeg" alt="Polett Rodríguez M." class="card-photo"
+                onerror="this.style.display='none'">
               <div class="card-ph ph-g"><span>foto</span></div>
               <div class="card-photo-overlay"></div>
             </div>
@@ -1007,7 +1115,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:prodriguez@bppabogados.cl" class="card-email">prodriguez@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'prodriguez@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:prodriguez@bppabogados.cl"
+                  class="card-email">prodriguez@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'prodriguez@bppabogados.cl')" title="Copiar correo"><svg width="11"
+                    height="11" viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1031,7 +1145,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:dgariboldi@bppabogados.cl" class="card-email">dgariboldi@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'dgariboldi@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:dgariboldi@bppabogados.cl"
+                  class="card-email">dgariboldi@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'dgariboldi@bppabogados.cl')" title="Copiar correo"><svg width="11"
+                    height="11" viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1055,7 +1175,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:shernandez@bppabogados.cl" class="card-email">shernandez@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'shernandez@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:shernandez@bppabogados.cl"
+                  class="card-email">shernandez@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'shernandez@bppabogados.cl')" title="Copiar correo"><svg width="11"
+                    height="11" viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1079,7 +1205,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:cgodoy@bppabogados.cl" class="card-email">cgodoy@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'cgodoy@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:cgodoy@bppabogados.cl"
+                  class="card-email">cgodoy@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'cgodoy@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1103,7 +1235,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:fkuthe@bppabogados.cl" class="card-email">fkuthe@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'fkuthe@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:fkuthe@bppabogados.cl"
+                  class="card-email">fkuthe@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'fkuthe@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1111,7 +1249,8 @@
         <div class="person-card" data-cat="asociados">
           <a href="BPP_Asociado_Detalle.html" class="card-link">
             <div class="card-photo-wrap">
-              <img src="asociado9.jpeg" alt="Valentina Espinoza R." class="card-photo" onerror="this.style.display='none'">
+              <img src="asociado9.jpeg" alt="Valentina Espinoza R." class="card-photo"
+                onerror="this.style.display='none'">
               <div class="card-ph ph-e"><span>foto</span></div>
               <div class="card-photo-overlay"></div>
             </div>
@@ -1127,7 +1266,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:vespinoza@bppabogados.cl" class="card-email">vespinoza@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'vespinoza@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:vespinoza@bppabogados.cl"
+                  class="card-email">vespinoza@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'vespinoza@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1151,7 +1296,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:lortiz@bppabogados.cl" class="card-email">lortiz@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'lortiz@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:lortiz@bppabogados.cl"
+                  class="card-email">lortiz@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'lortiz@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1176,7 +1327,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:fdevillaine@bppabogados.cl" class="card-email">fdevillaine@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'fdevillaine@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:fdevillaine@bppabogados.cl"
+                  class="card-email">fdevillaine@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'fdevillaine@bppabogados.cl')" title="Copiar correo"><svg width="11"
+                    height="11" viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1200,7 +1357,13 @@
                   <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="#1B64C8" stroke-width="1.3"
                     stroke-linecap="round" />
                 </svg> LinkedIn</a>
-              <div class="card-email-row"><a href="mailto:earmijo@bppabogados.cl" class="card-email">earmijo@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'earmijo@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:earmijo@bppabogados.cl"
+                  class="card-email">earmijo@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'earmijo@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1218,7 +1381,13 @@
             <div class="card-name">María González S.</div>
             <div class="card-role">Gerente Administrativa</div>
             <div class="card-btns">
-              <div class="card-email-row"><a href="mailto:mgonzalez@bppabogados.cl" class="card-email">mgonzalez@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'mgonzalez@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:mgonzalez@bppabogados.cl"
+                  class="card-email">mgonzalez@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'mgonzalez@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1235,7 +1404,13 @@
             <div class="card-name">Ana Martínez P.</div>
             <div class="card-role">Asistente de Dirección</div>
             <div class="card-btns">
-              <div class="card-email-row"><a href="mailto:amartinez@bppabogados.cl" class="card-email">amartinez@bppabogados.cl</a><button class="card-copy-btn" onclick="copyEmail(this,'amartinez@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg><span class="copy-check">✓</span></button></div>
+              <div class="card-email-row"><a href="mailto:amartinez@bppabogados.cl"
+                  class="card-email">amartinez@bppabogados.cl</a><button class="card-copy-btn"
+                  onclick="copyEmail(this,'amartinez@bppabogados.cl')" title="Copiar correo"><svg width="11" height="11"
+                    viewBox="0 0 14 14" fill="none">
+                    <rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2" />
+                    <path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round" />
+                  </svg><span class="copy-check">✓</span></button></div>
             </div>
           </div>
         </div>
@@ -1252,7 +1427,7 @@
         setTimeout(() => btn.classList.remove('copied'), 2000);
       }).catch(() => {
         const ta = document.createElement('textarea');
-        ta.value = email; ta.style.position='fixed'; ta.style.opacity='0';
+        ta.value = email; ta.style.position = 'fixed'; ta.style.opacity = '0';
         document.body.appendChild(ta); ta.select(); document.execCommand('copy');
         document.body.removeChild(ta);
         btn.classList.add('copied');
