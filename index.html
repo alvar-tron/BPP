@@ -54,9 +54,6 @@
     /* ══════════════════════════════════════
        TOPBAR
     ══════════════════════════════════════ */
-    /* ══════════════════════════════════════
-   TOPBAR
-══════════════════════════════════════ */
     .topbar {
       position: fixed;
       top: 0;
@@ -120,12 +117,12 @@
       gap: 7px;
       height: 24px;
       padding: 0 12px;
-      font-family: 'Jost', sans-serif;
       font-size: 11px;
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
       text-decoration: none;
+      border-radius: 1px;
       color: #fff;
       background: transparent;
       transition: background .2s, border-color .2s, transform .15s;
@@ -201,15 +198,14 @@
     }
 
     .nav-links li a {
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: .18em;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: .06em;
       text-transform: uppercase;
       text-decoration: none;
       transition: color .2s;
       white-space: nowrap;
-      color: rgba(255, 255, 255, .72);
+      color: rgba(255, 255, 255, .75);
     }
 
     .nav-links li a:hover,
@@ -256,7 +252,7 @@
       position: absolute;
       inset: 0;
       transform: translateX(100%);
-      transition: transform .65s cubic-bezier(.4, 0, .2, 1);
+      /* oculto por defecto a la derecha */
       background-size: cover;
       background-position: center;
       z-index: 1;
@@ -265,11 +261,6 @@
     .hero-slide--active {
       transform: translateX(0);
       z-index: 2;
-    }
-
-    .hero-slide--leaving {
-      transform: translateX(-100%);
-      z-index: 1;
     }
 
     .hero-slide-overlay {
@@ -395,13 +386,12 @@
     .hero-controls {
       position: absolute;
       bottom: 34px;
-      left: 0;
-      right: 200px;
+      right: 80px;
+      /* mismo margen que left: 80px del logo — equidistante */
       z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      padding-right: 80px;
       gap: 8px;
     }
 
@@ -682,7 +672,7 @@
     }
 
     .socio {
-      flex: 0 0 calc((100% - 40px) / 3);
+      flex: 0 0 calc((100% - 20px) / 2);
       height: 340px;
       position: relative;
       overflow: hidden;
@@ -1718,8 +1708,7 @@
       }
 
       .hero-controls {
-        padding-right: 40px;
-        right: 160px;
+        right: 32px;
       }
 
       .areas-main-grid {
@@ -1762,6 +1751,11 @@
       .hero-logo svg {
         width: 80px;
         height: 80px;
+      }
+
+      .hero-controls {
+        right: 16px;
+        bottom: 16px;
       }
 
       .hitos-grid {
@@ -1865,12 +1859,12 @@
         +56 9 4940 9721
       </a>
       <div class="topbar-sep"></div>
-      <a href="mailto:info@bppabogados.cl" class="topbar-link">
+      <a href="mailto:info@berriospalavecino.cl" class="topbar-link">
         <svg class="topbar-link-icon" viewBox="0 0 16 12" fill="none">
           <rect x="1" y="1" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4" />
           <path d="M1 3l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
         </svg>
-        info@bppabogados.cl
+        info@berriospalavecino.cl
       </a>
     </div>
     <div class="topbar-spacer"></div>
@@ -2071,26 +2065,7 @@
             <img src="matias.webp" alt="Matías Berríos Fuchslocher" onerror="this.style.display='none'">
             <div class="socio-overlay">
               <div class="socio-name">Matías Berríos Fuchslocher</div>
-              <div class="socio-role">Socio</div>
               <div class="socio-spec">Estrategia Laboral · Litigios</div>
-              <div class="socio-linkedin">
-                <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
-                  <rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4" />
-                  <circle cx="5" cy="5" r="1" fill="white" />
-                  <path d="M5 7v5M8 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="white" stroke-width="1.4"
-                    stroke-linecap="round" />
-                </svg>
-                Ver LinkedIn
-              </div>
-            </div>
-          </div>
-
-          <div class="socio">
-            <img src="francisco.webp" alt="Francisco Pinochet Cantwell" onerror="this.style.display='none'">
-            <div class="socio-overlay">
-              <div class="socio-name">Francisco Pinochet Cantwell</div>
-              <div class="socio-role">Socio Fundador</div>
-              <div class="socio-spec">Litigios · Compliance</div>
               <div class="socio-linkedin">
                 <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
                   <rect x="1" y="1" width="14" height="14" rx="2" stroke="white" stroke-width="1.4" />
@@ -2107,7 +2082,6 @@
             <img src="claudio.webp" alt="Claudio Palavecino Cáceres" onerror="this.style.display='none'">
             <div class="socio-overlay">
               <div class="socio-name">Claudio Palavecino Cáceres</div>
-              <div class="socio-role">Socio</div>
               <div class="socio-spec">Negociación Colectiva · Due Diligence</div>
               <div class="socio-linkedin">
                 <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
@@ -2127,177 +2101,176 @@
       <div class="socios-dots" id="socios-dots">
         <div class="socios-dot socios-dot--active" onclick="socioGoTo(0)"></div>
         <div class="socios-dot" onclick="socioGoTo(1)"></div>
-        <div class="socios-dot" onclick="socioGoTo(2)"></div>
       </div>
     </div>
 
     <div class="team-grid" id="team-grid">
-      <div class="team-cell"><img src="asociado1.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado1.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Patricio González</div>
           <div class="team-cell-area">Der. Laboral</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado2.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado2.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Manuel Gutiérrez</div>
           <div class="team-cell-area">Litigios</div>
         </div>
       </div>
-      <div class="team-cell">
+      <div class="team-cell" data-random>
         <div class="team-cell-overlay">
           <div class="team-cell-name">Franco Benavides</div>
           <div class="team-cell-area">Neg. Colectiva</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado4.jpeg" alt="">
+      <!-- POSICIÓN FIJA: fila 1, celda 4 — Francisco Pinochet -->
+      <div class="team-cell" data-fixed><img src="francisco.webp" alt="Francisco Pinochet Cantwell">
+        <div class="team-cell-overlay">
+          <div class="team-cell-name">Francisco Pinochet</div>
+        </div>
+      </div>
+      <div class="team-cell" data-random><img src="asociado4.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Polett Rodríguez</div>
           <div class="team-cell-area">Compliance</div>
         </div>
       </div>
-      <div class="team-cell">
+      <div class="team-cell" data-random>
         <div class="team-cell-overlay">
           <div class="team-cell-name">Dante Gariboldi</div>
           <div class="team-cell-area">Due Diligence</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado6.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado6.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">José J. Ossa</div>
           <div class="team-cell-area">Der. Laboral</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado7.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado7.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Gonzalo Doren</div>
           <div class="team-cell-area">Litigios</div>
         </div>
       </div>
-      <div class="team-cell">
+      <div class="team-cell" data-random>
         <div class="team-cell-overlay">
           <div class="team-cell-name">Sofía Hernández</div>
           <div class="team-cell-area">Compliance</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado9.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado9.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Constanza Godoy</div>
           <div class="team-cell-area">Der. Laboral</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado10.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado10.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Felipe Kuthe</div>
           <div class="team-cell-area">Litigios</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado11.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado11.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Valentina Espinoza</div>
           <div class="team-cell-area">Neg. Colectiva</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado1.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado1.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Lucas Ortiz</div>
           <div class="team-cell-area">Due Diligence</div>
         </div>
       </div>
-      <div class="team-cell">
+      <div class="team-cell" data-random>
         <div class="team-cell-overlay">
           <div class="team-cell-name">Macarena Valenzuela</div>
           <div class="team-cell-area">Der. Laboral</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado3.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado3.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Nicolás Yáñez</div>
           <div class="team-cell-area">Litigios</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado4.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado4.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Rocío Cartagena</div>
           <div class="team-cell-area">Seg. Social</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado5.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado5.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Simón Gutiérrez</div>
           <div class="team-cell-area">Estrategia</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado6.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado6.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Andrea Morales</div>
           <div class="team-cell-area">Der. Laboral</div>
         </div>
       </div>
-      <div class="team-cell">
+      <div class="team-cell" data-random>
         <div class="team-cell-overlay">
           <div class="team-cell-name">Rodrigo Pizarro</div>
           <div class="team-cell-area">Litigios</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado8.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado8.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Camila Reyes</div>
           <div class="team-cell-area">Compliance</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado9.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado9.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Felipe Araya</div>
           <div class="team-cell-area">Due Diligence</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado10.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado10.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Isidora Soto</div>
           <div class="team-cell-area">Der. Laboral</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado11.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado11.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Martín Fuentes</div>
           <div class="team-cell-area">Litigios</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado1.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado1.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Javiera Bravo</div>
           <div class="team-cell-area">Neg. Colectiva</div>
         </div>
       </div>
-      <div class="team-cell">
+      <div class="team-cell" data-random>
         <div class="team-cell-overlay">
           <div class="team-cell-name">Diego Castillo</div>
           <div class="team-cell-area">Estrategia</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado3.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado3.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Fernanda Lagos</div>
           <div class="team-cell-area">Seg. Social</div>
         </div>
       </div>
-      <div class="team-cell"><img src="asociado4.jpeg" alt="">
+      <div class="team-cell" data-random><img src="asociado4.jpeg" alt="">
         <div class="team-cell-overlay">
           <div class="team-cell-name">Sebastián Moya</div>
           <div class="team-cell-area">Compliance</div>
         </div>
       </div>
-      <div class="team-cell">
+      <div class="team-cell" data-random>
         <div class="team-cell-overlay">
           <div class="team-cell-name">Catalina Vera</div>
           <div class="team-cell-area">Der. Laboral</div>
-        </div>
-      </div>
-      <div class="team-cell"><img src="asociado6.jpeg" alt="">
-        <div class="team-cell-overlay">
-          <div class="team-cell-name">Pablo Herrera</div>
-          <div class="team-cell-area">Litigios</div>
         </div>
       </div>
     </div>
@@ -2502,16 +2475,20 @@
         <div class="footer-decor-2"></div>
         <div>
           <div class="footer-logo">
-            <span class="footer-logo-text">BPP</span>
-            <div class="footer-logo-divider"></div>
-            <div class="footer-logo-names">
-              <span class="footer-logo-name">BERRÍOS</span>
-              <span class="footer-logo-name">PALAVECINO</span>
-              <span class="footer-logo-name">PINOCHET</span>
-            </div>
+            <svg viewBox="0 0 310 310" width="138" height="138" xmlns="http://www.w3.org/2000/svg">
+              <rect width="310" height="310" fill="#1B64C8" />
+              <text x="28" y="178" font-family="Montserrat,Arial,sans-serif" font-weight="500" font-size="62"
+                fill="#FFFFFF" letter-spacing="-1">BPP</text>
+              <rect x="162" y="113" width="3" height="84" fill="#FFFFFF" rx="1" />
+              <text x="174" y="139" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16"
+                fill="#FFFFFF" letter-spacing="1.2">BERRÍOS</text>
+              <text x="174" y="161" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16"
+                fill="#FFFFFF" letter-spacing="1.2">PALAVECINO</text>
+              <text x="174" y="183" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16"
+                fill="#FFFFFF" letter-spacing="1.2">PINOCHET</text>
+            </svg>
           </div>
           <div class="footer-sub">Abogados · Attorneys & Counselors · Est. 1988</div>
-          <div class="footer-tagline">"Precisión jurídica.<br>Resultados que perduran."</div>
         </div>
         <div>
           <div class="footer-col-title">El Estudio</div>
@@ -2523,7 +2500,7 @@
               class="footer-col-link-arrow">→</span></a>
         </div>
         <div>
-          <div class="footer-col-title">Especialización</div>
+          <div class="footer-col-title">Áreas de Práctica</div>
           <a href="./BPP_Areas.html" class="footer-col-link">Derecho Laboral <span
               class="footer-col-link-arrow">→</span></a>
           <a href="./BPP_Areas.html" class="footer-col-link">Litigios <span class="footer-col-link-arrow">→</span></a>
@@ -2536,11 +2513,12 @@
         </div>
         <div>
           <div class="footer-col-title">Contacto</div>
-          <a href="#" class="footer-col-link">Huérfanos 835, Of. 801 <span class="footer-col-link-arrow">→</span></a>
+          <a href="#" class="footer-col-link">Apoquindo 3000 piso 15, Las Condes <span
+              class="footer-col-link-arrow">→</span></a>
           <a href="#" class="footer-col-link">Santiago, Chile <span class="footer-col-link-arrow">→</span></a>
           <a href="tel:+56949409721" class="footer-col-link">+56 9 4940 9721 <span
               class="footer-col-link-arrow">→</span></a>
-          <a href="mailto:info@bppabogados.cl" class="footer-col-link">info@bppabogados.cl <span
+          <a href="mailto:info@berriospalavecino.cl" class="footer-col-link">info@berriospalavecino.cl <span
               class="footer-col-link-arrow">→</span></a>
         </div>
       </div>
@@ -2573,25 +2551,60 @@
   <div class="fab-decor-2"></div>
 
   <script>
-    /* ── CARRUSEL HERO ── */
+    /* ── CARRUSEL HERO — transición direccional ── */
     let currentSlide = 0;
     const heroSlides = document.querySelectorAll('.hero-slide');
     const heroDots = document.querySelectorAll('.hero-dot');
-    let heroTimer = setInterval(nextSlide, 6000);
+    let heroTimer = setInterval(() => goSlide(currentSlide + 1, 'next'), 5000);
 
-    function goSlide(n) {
-      heroSlides[currentSlide].classList.remove('hero-slide--active');
-      heroSlides[currentSlide].classList.add('hero-slide--leaving');
+    function goSlide(n, dir) {
+      const total = heroSlides.length;
+      const next = ((n % total) + total) % total;
+      if (next === currentSlide) return;
+
+      const entering = heroSlides[next];
+      const leaving = heroSlides[currentSlide];
+      const isNext = dir !== 'prev'; /* true = izq→der (next), false = der→izq (prev) */
+
+      /* Posicionar el entrante fuera del viewport en la dirección correcta */
+      entering.style.transition = 'none';
+      entering.style.transform = isNext ? 'translateX(100%)' : 'translateX(-100%)';
+      entering.style.zIndex = '3';
+      leaving.style.zIndex = '2';
+
+      /* Forzar repaint antes de animar */
+      entering.offsetHeight;
+
+      /* Animar ambos slides simultáneamente */
+      const dur = 'transform .65s cubic-bezier(.4,0,.2,1)';
+      entering.style.transition = dur;
+      leaving.style.transition = dur;
+      entering.style.transform = 'translateX(0)';
+      leaving.style.transform = isNext ? 'translateX(-100%)' : 'translateX(100%)';
+
+      /* Actualizar clases y dots */
       heroDots[currentSlide].classList.remove('hero-dot--active');
-      setTimeout(() => heroSlides[currentSlide].classList.remove('hero-slide--leaving'), 700);
-      currentSlide = (n + heroSlides.length) % heroSlides.length;
-      heroSlides[currentSlide].classList.add('hero-slide--active');
-      heroDots[currentSlide].classList.add('hero-dot--active');
+      heroDots[next].classList.add('hero-dot--active');
+
+      entering.addEventListener('transitionend', function cleanup() {
+        entering.removeEventListener('transitionend', cleanup);
+        /* Limpiar estados inline de todos los slides */
+        heroSlides.forEach(s => {
+          s.style.transition = '';
+          s.style.transform = '';
+          s.style.zIndex = '';
+          s.classList.remove('hero-slide--active', 'hero-slide--leaving');
+        });
+        entering.classList.add('hero-slide--active');
+      }, { once: true });
+
+      currentSlide = next;
       clearInterval(heroTimer);
-      heroTimer = setInterval(nextSlide, 6000);
+      heroTimer = setInterval(() => goSlide(currentSlide + 1, 'next'), 5000);
     }
-    function nextSlide() { goSlide(currentSlide + 1); }
-    function prevSlide() { goSlide(currentSlide - 1); }
+
+    function nextSlide() { goSlide(currentSlide + 1, 'next'); }
+    function prevSlide() { goSlide(currentSlide - 1, 'prev'); }
 
     /* ── NAV SCROLL — eliminado: nav siempre sólido ── */
 
@@ -2720,10 +2733,37 @@
 
     (function () {
       const palette = ['#1B64C8', '#3D7FD4', '#85B7EB', '#999999', '#0A2A5E', '#FFFFFF'];
-      document.querySelectorAll('#team-grid .team-cell').forEach(cell => {
+      const grid = document.getElementById('team-grid');
+      if (!grid) return;
+
+      /* Colorear todas las celdas */
+      grid.querySelectorAll('.team-cell').forEach(cell => {
         cell.style.backgroundColor = palette[Math.floor(Math.random() * palette.length)];
         const img = cell.querySelector('img');
         if (img) img.addEventListener('error', () => { img.style.display = 'none'; });
+      });
+
+      /* Shuffle solo las celdas con data-random, manteniendo data-fixed en su lugar */
+      const allCells = Array.from(grid.children);
+      const fixedCell = grid.querySelector('[data-fixed]');
+      const fixedIndex = allCells.indexOf(fixedCell);
+      const randomCells = allCells.filter(c => c.hasAttribute('data-random'));
+
+      /* Fisher-Yates sobre las celdas aleatorias */
+      for (let i = randomCells.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [randomCells[i], randomCells[j]] = [randomCells[j], randomCells[i]];
+      }
+
+      /* Reconstruir la grilla insertando celdas en su posición original,
+         respetando el index fijo de Francisco */
+      let ri = 0;
+      allCells.forEach((_, idx) => {
+        if (idx === fixedIndex) {
+          grid.appendChild(fixedCell);
+        } else {
+          grid.appendChild(randomCells[ri++]);
+        }
       });
     })();
   </script>
