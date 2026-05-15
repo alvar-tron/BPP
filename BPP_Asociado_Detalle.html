@@ -92,7 +92,11 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
   height:300px; background:var(--blue-xdk);
   position:relative; overflow:hidden; display:flex; align-items:flex-end;
 }
-
+.sh-img {
+  position:absolute; inset:0;
+  background-image:url('francisco.webp');
+  background-size:cover; background-position:center top;
+}
 .sh-overlay {
   position:absolute; inset:0;
   background:linear-gradient(
@@ -189,6 +193,7 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
 .datos-bio {
   font-size:14px; color:#555; line-height:1.85; margin-bottom:24px;
 }
+.ficha-datos > div > .datos-bio:first-child { padding-top: 4px; }
 .datos-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
 .dtag {
   font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600;
@@ -430,12 +435,12 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
       +56 9 4940 9721
     </a>
     <div class="topbar-sep"></div>
-    <a href="mailto:info@bppabogados.cl" class="topbar-link">
+    <a href="mailto:info@berriospalavecino.cl" class="topbar-link">
       <svg class="topbar-link-icon" viewBox="0 0 16 12" fill="none">
         <rect x="1" y="1" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/>
         <path d="M1 3l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
       </svg>
-      info@bppabogados.cl
+      info@berriospalavecino.cl
     </a>
   </div>
   <div class="topbar-spacer"></div>
@@ -483,6 +488,7 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
 
 <!-- HERO -->
 <section class="section-hero">
+  <div class="sh-img"></div>
   <div class="sh-overlay"></div>
   <svg class="sh-wave" viewBox="0 0 1180 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M0,150 C180,100 360,200 540,150 S900,100 1180,150" stroke="#4ECDC4" stroke-width="1.8" fill="none"/>
@@ -521,9 +527,6 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
 
     <div class="ficha-datos">
       <div>
-        <span class="datos-eyebrow">Socio Fundador · BPP Abogados</span>
-        <h2 class="datos-nombre">Francisco Pinochet<br>Cantwell</h2>
-        <div class="datos-rol">Litigios Laborales · Compliance · Derecho Civil</div>
         <p class="datos-bio">
           Abogado fundador de BPP con más de 35 años de trayectoria en derecho laboral chileno. Reconocido reiteradamente en los principales rankings internacionales, incluyendo Chambers &amp; Partners, Legal 500 y Best Lawyers. Combina la práctica profesional con una destacada actividad académica como profesor en programas de Doctorado y Magíster en derecho laboral, y es miembro honorario del Colegio de Abogados de Lima.
         </p>
@@ -543,8 +546,8 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
           LinkedIn
         </a>
         <div class="card-email-row">
-          <a href="mailto:fpinochet@bppabogados.cl" class="card-email">fpinochet@bppabogados.cl</a>
-          <button class="card-copy-btn" onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo">
+          <a href="mailto:fpinochet@berriospalavecino.cl" class="card-email">fpinochet@berriospalavecino.cl</a>
+          <button class="card-copy-btn" onclick="copyEmail(this,'fpinochet@berriospalavecino.cl')" title="Copiar correo">
             <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg>
             <span class="copy-check">✓</span>
           </button>
@@ -561,6 +564,7 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
     <div class="tabs-nav">
       <button class="tab-btn active" onclick="switchTab(event,'estudios')">Estudios</button>
       <button class="tab-btn" onclick="switchTab(event,'experiencia')">Experiencia</button>
+      <button class="tab-btn" onclick="switchTab(event,'practica')">Práctica</button>
       <button class="tab-btn" onclick="switchTab(event,'academica')">Actividad Académica</button>
       <button class="tab-btn" onclick="switchTab(event,'contacto')">Contacto</button>
     </div>
@@ -613,6 +617,30 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
       </div>
     </div>
 
+    <div class="tab-panel" id="tab-practica">
+      <div class="academica-content">
+        <div class="academica-block anim-up">
+          <span class="academica-subtitle">Áreas de Práctica</span>
+          <ul class="academica-list">
+            <li>Derecho Laboral individual y colectivo — contratos, desvinculaciones, negociación colectiva y conflictos sindicales.</li>
+            <li>Litigación laboral y civil ante Juzgados del Trabajo, Cortes de Apelaciones y Corte Suprema.</li>
+            <li>Compliance laboral y penal — diseño e implementación de modelos de cumplimiento normativo y Ley Karin.</li>
+            <li>Tutela laboral y recursos de protección en materia de derechos fundamentales en el trabajo.</li>
+            <li>Subcontratación y suministro de personal — régimen de responsabilidades y auditorías.</li>
+            <li>Due Diligence laboral en procesos de fusión, adquisición y reestructuración empresarial.</li>
+          </ul>
+        </div>
+        <div class="academica-block anim-up">
+          <span class="academica-subtitle">Sectores</span>
+          <ul class="academica-list">
+            <li>Grandes empresas nacionales e internacionales con operaciones en Chile.</li>
+            <li>Retail, construcción, minería, banca y servicios financieros.</li>
+            <li>Industria tecnológica y startups en etapas de crecimiento y estructuración.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="tab-panel" id="tab-academica">
       <div class="academica-content">
         <div class="academica-block anim-up">
@@ -650,8 +678,8 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
         <div class="contacto-field anim-up">
           <span class="contacto-field-label">Correo electrónico</span>
           <div class="card-email-row">
-            <a href="mailto:fpinochet@bppabogados.cl" class="card-email">fpinochet@bppabogados.cl</a>
-            <button class="card-copy-btn" onclick="copyEmail(this,'fpinochet@bppabogados.cl')" title="Copiar correo">
+            <a href="mailto:fpinochet@berriospalavecino.cl" class="card-email">fpinochet@berriospalavecino.cl</a>
+            <button class="card-copy-btn" onclick="copyEmail(this,'fpinochet@berriospalavecino.cl')" title="Copiar correo">
               <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1" stroke="#999" stroke-width="1.2"/><path d="M2 10V2h8" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg>
               <span class="copy-check">✓</span>
             </button>
@@ -659,7 +687,7 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
         </div>
         <div class="contacto-field anim-up">
           <span class="contacto-field-label">Oficina</span>
-          <div class="contacto-field-value">Huérfanos 835, Of. 801 · Santiago, Chile</div>
+          <div class="contacto-field-value">Apoquindo 3000 piso 15, Las Condes · Santiago, Chile</div>
         </div>
         <div class="contacto-field anim-up">
           <span class="contacto-field-label">Teléfono central</span>
@@ -671,6 +699,7 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
 </div>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -678,16 +707,15 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
       <div class="footer-decor-2"></div>
       <div>
         <div class="footer-logo">
-          <span class="footer-logo-text">BPP</span>
-          <div class="footer-logo-divider"></div>
-          <div class="footer-logo-names">
-            <span class="footer-logo-name">BERRÍOS</span>
-            <span class="footer-logo-name">PALAVECINO</span>
-            <span class="footer-logo-name">PINOCHET</span>
-          </div>
+          <svg viewBox="0 0 310 310" width="108" height="108" xmlns="http://www.w3.org/2000/svg">
+            <rect width="310" height="310" fill="#1B64C8"/>
+            <text x="28" y="178" font-family="Montserrat,Arial,sans-serif" font-weight="500" font-size="62" fill="#FFFFFF" letter-spacing="-1">BPP</text>
+            <rect x="162" y="113" width="3" height="84" fill="#FFFFFF" rx="1"/>
+            <text x="174" y="139" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="1.2">BERRÍOS</text>
+            <text x="174" y="161" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="1.2">PALAVECINO</text>
+            <text x="174" y="183" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="1.2">PINOCHET</text>
+          </svg>
         </div>
-        <div class="footer-sub">Abogados · Attorneys & Counselors · Est. 1988</div>
-        <div class="footer-tagline">"Precisión jurídica.<br>Resultados que perduran."</div>
       </div>
       <div>
         <div class="footer-col-title">El Estudio</div>
@@ -696,7 +724,7 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
         <a href="./BPP_Noticias.html" class="footer-col-link">Publicaciones <span class="footer-col-link-arrow">→</span></a>
       </div>
       <div>
-        <div class="footer-col-title">Especialización</div>
+        <div class="footer-col-title">Áreas de Práctica</div>
         <a href="./BPP_Areas.html" class="footer-col-link">Derecho Laboral <span class="footer-col-link-arrow">→</span></a>
         <a href="./BPP_Areas.html" class="footer-col-link">Litigios <span class="footer-col-link-arrow">→</span></a>
         <a href="./BPP_Areas.html" class="footer-col-link">Asesoría Corporativa <span class="footer-col-link-arrow">→</span></a>
@@ -704,9 +732,10 @@ body { font-family:'Montserrat',sans-serif; background:var(--gray-bg); color:var
       </div>
       <div>
         <div class="footer-col-title">Contacto</div>
-        <a href="#" class="footer-col-link">Huérfanos 835, Of. 801 <span class="footer-col-link-arrow">→</span></a>
+        <a href="#" class="footer-col-link">Apoquindo 3000 piso 15, Las Condes <span class="footer-col-link-arrow">→</span></a>
+        <a href="#" class="footer-col-link">Santiago, Chile <span class="footer-col-link-arrow">→</span></a>
         <a href="tel:+56949409721" class="footer-col-link">+56 9 4940 9721 <span class="footer-col-link-arrow">→</span></a>
-        <a href="mailto:info@bppabogados.cl" class="footer-col-link">info@bppabogados.cl <span class="footer-col-link-arrow">→</span></a>
+        <a href="mailto:info@berriospalavecino.cl" class="footer-col-link">info@berriospalavecino.cl <span class="footer-col-link-arrow">→</span></a>
       </div>
     </div>
     <div class="footer-bottom">
